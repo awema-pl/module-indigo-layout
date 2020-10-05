@@ -1,0 +1,29 @@
+extends includes/login.pug
+
+block pageVariables
+    - var pageTitle = "Register"
+    - var pageAsideBg = "https://www.spirit-of-metal.com/les%20goupes/L/Lacuna%20Coil/pics/f9c9_2.jpg"
+    - var stepNumber = 1
+
+block pageHead
+    // there is can be head meta or sctipts
+
+block pageContent
+    a.login-page__logo(href='https://www.awema.pl')
+        i.icon.icon-logo
+    h2= pageTitle
+    span.login-page__spacer.login-page__spacer_rc
+        i Step 1 of 4
+    .login-page__form
+        form-builder(url='https://www.awema.pl/register', :default="{'email':''}", btntext='Next')
+            fb-input(name='email', type='email', label='E-Mail', focus='')
+            .login-page__ins
+                fb-checkbox(name='agree', label='Agree', cell='1')
+    .tf-centerlink
+        a(href='https://www.awema.pl/login') Back to login page
+    span.login-page__spacer
+        i or register with a social network
+    .login-page__socials
+        a.icon.icon-fb(href='https://www.awema.pl/login/facebook')
+        a.icon.icon-in(href='https://www.awema.pl/login/linkedin')
+        a.icon.icon-gp(href='https://www.awema.pl/login/google')

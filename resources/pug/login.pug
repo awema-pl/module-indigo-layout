@@ -1,0 +1,31 @@
+extends includes/login.pug
+
+block pageVariables
+    - var pageTitle = "Login"
+    - var pageAsideBg = "https://www.spirit-of-metal.com/les%20goupes/L/Lacuna%20Coil/pics/f9c9_2.jpg"
+
+block pageHead
+    // there is can be head meta or sctipts
+
+block pageContent
+    a.login-page__logo(href='https://www.awema.pl')
+        i.icon.icon-logo
+    h2= pageTitle
+    .login-page__form
+        form-builder(disabled-dialog='', url='https://www.awema.pl/login', btntext='Login')
+            fb-input(name='email', type='email', label='E-Mail', focus='')
+            fb-input(name='password', label='Password', type='password')
+            //- fb-auto-captcha(:show='false')
+            .login-page__checkform
+                fb-checkbox(name='remember', label='Remember me', :cell='2', enter-skip='')
+                .grid__cell.grid__cell_2
+                    a.login-page__lostpass(href='https://www.awema.pl/password/request')
+                        | Forgot password?
+    .tf-centerlink
+        a(href='https://www.awema.pl/register') No, I want to register
+    span.login-page__spacer
+        i or enter with a social network
+    .login-page__socials
+        a.icon.icon-fb(href='https://www.awema.pl/login/facebook')
+        a.icon.icon-in(href='https://www.awema.pl/login/linkedin')
+        a.icon.icon-gp(href='https://www.awema.pl/login/google')

@@ -1,0 +1,457 @@
+.form
+    &--select
+        margin-bottom 10px
+    &--navmenu
+        margin-bottom 10px
+
+
+.fb
+    &_content
+        &-mt
+            margin-top 35px
+        &-mb
+            margin-bottom 35px
+    &__input
+        &-wrap
+            fl()
+        &-inner
+            flex-grow 1
+            display block
+            position relative
+        &-domain
+            align-items center
+            padding 12px 0 0 5px
+            display inline-flex
+            width auto
+            
+.number-field
+    size 54px 36px
+    position relative
+    & &__field
+        size 54px 36px
+        border-radius 2px
+        padding-right 17px
+        padding-left 3px
+        font-size f_nomral
+        text-align center
+    & &__plus
+        fl(,c,c)
+        absolute top 3px right 3px
+        border-radius 2px
+        size 14px
+        text-align center
+        line-height 1
+    & &__minus
+        fl(,c,c)
+        absolute bottom 3px right 3px
+        border-radius 2px
+        size 14px
+        text-align center
+        line-height 1
+
+.btn-group
+    display inline-flex
+    .btn, & &__separator
+        padding-left 1px
+        text(f_small)
+        text-align center
+        min-height 34px
+        border 1px solid
+        border-color var(--tc_border)
+        color var(--tc_link_semi)
+        background-color var(--tc_ui_bg_semi )
+        fl(,c,c)
+        border-radius 0
+        width auto
+        text-transform none
+        min-width 1px
+        padding 5px 10px
+        user-select none
+        margin-left -1px
+        .wave
+            background-color: var(--tc_ui_wave_dark)
+    .btn
+        cursor pointer
+        tr(0.3)
+        &:hover, &:active, &:focus
+            text-decoration none
+            color var(--tc_link_semi_active)
+            background-color transparent
+            filter none
+        &:first-child
+            border-radius var(--tc_border_radius) 0px 0px var(--tc_border_radius)
+        &:last-child
+            border-radius 0px var(--tc_border_radius) var(--tc_border_radius) 0px
+        &.active
+            background-color var(--tc_ui_bg)
+            color var(--tc_link_semi_active)
+
+.grid
+    &_forms
+        width calc(100% + 10px)
+        margin-left -5px
+        margin-right -5px
+        [class^="cell"]
+            padding-left 5px
+            padding-right 5px
+            margin-bottom 10px
+        &^[0]-gap-y
+            margin-left 0
+            margin-right 0
+            width 100%
+            [class^="cell"]
+                margin-bottom 10px
+                padding-left 0
+                padding-right 0
+        &^[0]-gap-x
+            [class^="cell"]
+                margin-bottom 0
+        &^[0]-ungap
+            margin-bottom -10px
+        &^[0]-nogap
+            margin-left 0
+            margin-right 0
+            width 100%
+            [class^="cell"]
+                padding-left 0
+                padding-right 0
+                margin-bottom 0
+
+
+
+.modal-form
+    & &__wrap
+        padding 40px
+    & &__title
+        text-align center
+        font-size f_big
+        font-weight 400
+        margin-bottom 35px
+    & &__buttons
+        fl()
+        .btn
+            width 50%
+            padding-top 22px
+            padding-bottom 22px
+            border-radius 0
+            font-size f_medium
+            text-transform none
+
+.btn
+    display inline-flex
+    align-items center
+    justify-content center
+    text-align center
+    transition background-color 0.3s ease, color 0.3s ease
+    border-radius var(--tc_form_border_radius)
+    text-align center
+    padding 15px 30px
+    min-width 120px
+    flex-shrink: 0
+    text-transform uppercase
+    font-size f_smart
+    color var(--tc_btn_text)
+    background-color var(--tc_btn_bg)
+    .icon
+        margin-right 7px
+    &_ib
+        display inline-block
+    &_loading
+        pointer-events: none
+        .icon
+            animation rotate 1s infinite linear
+    &:hover, &:focus
+        text-decoration none !important
+        background-color var(--tc_btn_bg_active)
+        color var(--tc_btn_text)
+    &_white
+        background-color var(--tc_btn_tr_bg)
+        color var(--tc_btn_tr_text)
+        .wave
+            background-color: var(--tc_ui_wave_dark)
+        &:hover, &:focus
+            background-color var(--tc_btn_tr_bg_d)
+            color var(--tc_btn_tr_text)
+    &_second
+        color var(--tc_ui_btn_smcolor_text)
+        background-color var(--tc_ui_btn_smcolor)
+        &:hover, &:focus
+            color var(--tc_ui_btn_smcolor_text)
+            background-color var(--tc_ui_btn_smcolor_active)
+    &_transparent
+        background-color transparent
+        color var(--tc_btn_tr_text)
+        .wave
+            background-color: var(--tc_ui_wave_dark)
+        &:hover, &:focus
+            background-color var(--tc_btn_tr_bg_d)
+    &_sh
+        box-shadow 1px 2px 3px var(--tc_btn_bg_shadow)
+    &_greylink
+        background-color transparent
+        color var(--tc_link_semi)
+        padding 0
+        min-width 1px
+        &:hover, &:focus
+            background-color transparent
+            color var(--tc_link)
+    &.loading-inline
+        &:hover, &:focus
+            background-color var(--tc_btn_bg)
+    &[disabled="disabled"], &:disabled
+        cursor not-allowed
+        opacity 0.5
+
+.cr-viewport.cr-vp-square
+    border-radius 50%
+
+.crop-image
+    &_with-btn
+        padding-bottom 75px
+    & &__file
+        input[type="file"]
+            opacity 0
+            size 0px
+            display none
+    & &__buttons
+        fl(w,sb,c)
+        max-width 300px
+        margin-left auto
+        margin-right auto
+
+.form-smlink
+    font-size f_small
+    display inline-block
+    margin-left 15px
+    &:hover
+        text-decoration underline
+
+
+
+
+.radiobox
+    position relative
+    cursor pointer
+    margin-bottom 10px
+    display block
+    & &__field
+        absolute left 0 top 0
+        size 0px
+        opacity 0
+    & &__content
+        display block
+        position relative
+        padding-left 28px
+    & &__icon
+        size 18px
+        border-style 50%
+        fl(,c,c)
+        border-radius 50%
+        absolute left 0 top 1px
+        &:before
+            size 4px
+            border-radius 50%
+            display block
+            absolute left 50% top 50%
+            margin-top -2px
+            margin-left -2px
+            content ''
+
+
+
+
+
+.box-checker
+    // fl()
+    // width 100%
+    // margin-bottom 20px
+    .fc-radio__box
+        position relative
+        padding 20px 5px
+    // & &__content
+    //
+    // & &__field
+    //     absolute left 0 top 0
+    //     opacity 0
+    //     size 0px
+    & &__title
+        text-transform uppercase
+        font-size f_small
+        display block
+        margin-bottom 2px
+    & &__price
+        font-size f_small
+        display inline-block
+        font-size 30px
+        font-weight 300
+        position relative
+        small
+            absolute right -15px top 3px
+            font-size 17px
+            font-weight 400
+    & &__caption
+        font-size f_small
+        display block
+
+
+.progress
+    display: block
+    text-align: center
+    font-size: .6rem
+
+    progress
+        display: block
+        margin-top: .5rem
+        appearance: none
+        border: none
+        font-size: 0
+        width: 100%
+        height: 1px
+        background: transparent
+
+    &::-webkit-progress-bar
+        background: transparent
+
+
+// animation hack autofill detection
+@keyframes autoFillStart
+    from
+        opacity: 1
+    to
+        opacity: 1
+@keyframes autoFillEnd
+    from
+        opacity: 1
+    to
+        opacity: 1
+
+.form-spoiler
+    display block
+    padding-left 44px
+    position relative
+    & &__title
+        font-size f_middle
+        color #000000
+        padding-bottom 30px
+        display block
+        position relative
+        &:before
+            size 0px
+            border 3px solid transparent
+            border-top 4px solid #000
+            display block
+            absolute left -20px top 10px
+            content ''
+        &:hover
+            text-decoration none
+    & &__hidden
+        padding-bottom 30px
+        display none
+        &.v-collapse-content-end
+            display: block
+    &:before
+        absolute left 0 top 25px
+        width 1px
+        height calc(100% - 30px)
+        display block
+        content ''
+    &:after
+        size 7px
+        border 2px solid
+        display block
+        border-radius 50%
+        absolute left -4px top 5px
+        content ''
+    &:last-child
+        &:before
+            display none
+    &.active
+        & ^[0]__title
+            &:before
+                transform rotate(-90deg)
+                top: 8px
+                margin-left 2px
+
+
+.figure-loader
+    padding-left 25px
+    & &__img
+        size 100% 130px
+        max-width 200px
+        fl(w,c,c)
+        box-shadow 0 0 5px rgba(0, 0, 0, 0.1)
+        border-radius var(--tc_border_radius)
+        position relative
+        margin-bottom 20px
+        img
+            max-width 100%
+            max-height 100%
+    & &__remove
+        font-size 14px
+        absolute right 10px top 10px
+
+    & &__buttons
+        .btn
+            display inline-block
+
+
+.form-title
+    font-size f_normal
+    display block
+    margin-bottom 10px
+    margin-top 10px
+    span
+        margin-right 20px
+    .icon
+        vertical-align middle
+
+.line-btns
+    padding-top 20px
+    .btn
+        display inline-block
+        margin-right 10px
+        margin-bottom 10px
+
+
+@keyframes rotate
+    from
+        transform rotate(0deg)
+    to
+        transform: rotate(360deg)
+
+
+@media maw[tlg]
+    .form-spoiler
+        padding-left 30px
+        & &__title
+            &:before
+                left -14px
+
+
+    .figure-loader
+        padding-left 0
+
+
+
+
+@media maw[mmd]
+    .modal-form
+        & &__wrap
+            padding 25px 30px
+        & &__title
+            text-align left
+            margin-bottom 25px
+            padding-right 30px
+
+
+@media maw[msm]
+    .box-checker
+        & &__title
+            font-size 10px
+        & &__price
+            font-size 25px
+        & &__caption
+            font-size 11px
+    .btn
+        padding-left 25px
+        padding-right 25px

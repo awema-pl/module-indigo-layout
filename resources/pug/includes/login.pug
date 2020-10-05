@@ -1,0 +1,17 @@
+block pageVariables
+doctype html
+html(lang="en")
+    head
+        title= pageTitle
+        include frames/metahead
+        block pageHead
+    body
+        content-wrapper(class="mainwrapper")
+            .login-page
+                .login-page__left
+                    .login-page__left-wrap
+                        .login-page__left-center
+                            block pageContent
+                                p Content Block
+                span.login-page__bg(style="background-image: url('"+pageAsideBg+"');")
+                    span

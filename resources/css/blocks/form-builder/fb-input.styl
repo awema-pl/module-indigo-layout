@@ -1,0 +1,160 @@
+.fb-input
+    position relative
+    z-index 1
+    width 100%
+    & &__eye
+        absolute right 15px top 50%
+        margin-top -9px
+        display block
+        z-index 2
+        color var(--tc_text_caption)
+        &:hover
+            color var(--tc_link)
+        .icon
+            font-size 18px
+    & &__wrap
+        position relative
+        width 100%
+    & &__label
+        font-size f_middle
+        absolute left 5px top 7px
+        width calc(100% - 35px)
+        padding 8px 15px 3px 10px
+        display block
+        border-radius var(--tc_form_border_radius)
+        pointer-events none
+        z-index 1
+        white-space nowrap
+        text-overflow ellipsis
+        overflow hidden
+        tr(0.15)
+        color var(--tc_text_caption)
+    & &__color
+        absolute left 15px bottom 10px
+        size 14px
+        display block
+        pointer-events none
+        tr(0.3)
+        background-color #eeeeee
+        opacity 0
+    &_3
+        width calc(33.333% - 10px)
+        margin-left 5px
+        margin-right 5px
+    &_2
+        width calc(50% - 10px)
+        margin-left 5px
+        margin-right 5px
+    & &__field
+        size 100% 50px
+        padding 0 15px
+        font-size f_medium
+        border-radius var(--tc_form_border_radius)
+        tr(0.25, border-color)
+        border 1px solid var(--tc_border_ins)
+        color var(--tc_text)
+        background-color var(--tc_ui_bg)
+        formautofill()
+        &:focus
+            border 1px solid var(--tc_ui_focus)
+        &_password
+            padding-right 50px
+        &.has-label
+            padding-top 14px
+    &_color
+        padding-right 34px
+        & ^[0]__field
+            padding-left 35px
+    &_focus
+        z-index 2
+        & ^[0]__color
+            opacity 1
+    &_plus
+        & ^[0]__field
+            padding-right 65px
+    &_autocomplete
+        z-index 2
+        & ^[0]__field
+            border 1px solid var(--tc_link_dark) !important
+    & &__okicon
+        absolute right 15px top 18px
+        font-size 14px
+        line-height 1
+        color cl_salad
+    & &__autocomplete
+        absolute left 0
+        top calc(100% - 2px)
+        display none
+        display block
+        width 100%
+        border-radius 0 0 var(--tc_form_border_radius) var(--tc_form_border_radius)
+        background-color var(--tc_ui_bg)
+        border 1px solid cl_sky
+        border-top 0px
+        &-caption
+            font-size f_smart
+            color var(--tc_text_caption)
+            font-weight 600
+            display block
+            width 100%
+            padding 7px 12px
+        &-info
+            font-size f_smart
+            background-color var(--tc_ui_bg_semi)
+            color var(--tc_text_caption)
+            font-weight 600
+            display block
+            width 100%
+            padding 7px 12px
+            text-transform uppercase
+        &-loading
+            padding 15px 12px
+            display block
+            background-color var(--tc_ui_bg_semi)
+            color var(--tc_text_caption)
+            width 100%
+            .icon
+                animation rotate 1s infinite linear
+        &-hidden
+            padding-bottom 10px
+            a
+                color var(--tc_link_black)
+                display block
+                font-size f_medium
+                padding 5px 12px
+                &:hover
+                    background-color var(--tc_ui_btn_light)
+                    color var(--tc_link_black)
+    &_active
+        & ^[0]__color
+            opacity 1
+        & ^[0]__label
+            font-size 10px
+            top 1px
+            height auto
+        & ^[0]__autocomplete
+            display block
+    &_disabled
+        disabled()
+    &_ok
+        & ^[0]__field
+            padding-right 50px
+            border 1px solid cl_salad
+        & ^[0]__label
+            width calc(100% - 35px)
+    &_error
+        & ^[0]__field
+            border 1px solid cl_warn !important
+            &:focus
+                border 1px solid cl_warn !important
+        & ^[0]__label
+            color cl_warn !important
+    &_type-hidden
+        display: none
+
+@media maw[tsm]
+    .fb-input
+        &_3
+            width calc(100% - 10px)
+        &_2
+            width calc(100% - 10px)

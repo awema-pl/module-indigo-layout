@@ -1,0 +1,489 @@
+tf_titles = (h1 h2 h3 h4 h5)
+tf_tags = (p blockquote table ul ol dl core pre 'div[id]' '.grid')
+tf_margin = 27px
+tf_text_margin = 25px
+
+for tag in tf_tags
+    for value in tf_titles
+        {tag} + {value}
+            margin-top 35px
+
+for tag in tf_titles
+    {tag}
+        display block
+        margin-bottom tf_margin
+        + p
+            margin-top -10px
+
+    for stag in tf_titles
+        {tag} + {stag}
+            margin-top -10px
+
+body
+    font-size f_normal
+
+a
+    color var(--tc_link)
+    &:hover
+        color var(--tc_link_dark)
+
+.cl
+    &-red
+        color cl_warn
+    &-green
+        color cl_grass
+    &-caption
+        color var(--tc_text_caption)
+
+.mainwrapper
+    pre[data-language]
+        position relative
+        &:before
+            content: attr(data-language)
+            background-color: var(--tc_ui_bg)
+            text-transform: uppercase
+            padding: 20px 90px 15px 30px
+            border-radius: var(--tc_border_radius) var(--tc_border_radius) 0px 0px
+            font-size: 14px
+            font-weight: 600
+            font-family inherit
+            border-bottom 1px solid var(--tc_border)
+            display: block
+        .hljs-copy
+            border-radius: var(--tc_border_radius) !important
+
+    .hljs
+        padding 25px 30px
+        line-height 1.5
+
+        &-ln
+            width: 100%
+            td
+                border-bottom: none
+            tr:hover
+                background: none
+            &-numbers
+                width: 45px
+                text-align: right
+            &-n
+                padding-right: 15px
+                opacity: .4
+
+        &-copy
+            padding: 7px 10px
+            transition background-color 0.3s ease, color 0.3s ease
+            border-radius var(--tc_border_radius)
+            text-transform uppercase
+            background-color: transparent
+            color var(--tc_btn_tr_text)
+            font-size 14px
+            line-height: 1
+            absolute top 14px right 20px
+
+            &:hover, &:focus
+                background-color var(--tc_ui_bg_darken_s)
+
+            &:active
+                background-color var(--tc_ui_bg_darken_d)
+
+
+h1, .h1
+    margin-bottom tf_margin
+    font-weight 700
+    display block
+    font-size f_big
+    color var(--tc_titles)
+
+h2, .h2
+    font-weight 400
+    font-size f_big
+    color var(--tc_titles)
+
+
+h3, .h3
+    font-weight 700
+    font-size f_middle
+    color var(--tc_titles)
+
+
+h4, .h4
+    font-weight 400
+    font-size f_middle
+    color var(--tc_titles)
+
+
+h5, .h5
+    font-weight 400
+    font-size f_medium
+    color var(--tc_titles)
+
+
+p
+    margin-bottom 20px
+    line-height 1.5
+    + p
+        margin-top -10px
+
+a
+    &:hover
+        text-decoration underline
+    mark
+        text-decoration none !important
+        &:hover
+            text-decoration none
+
+blockquote
+    display block
+    padding 30px
+    margin-bottom tf_margin
+    line-height 1.5
+    margin-left 0
+    margin-right 0
+    margin-top 0
+    position relative
+    border-radius var(--tc_border_radius)
+    &:before
+        absolute right 5px top 5px
+        font-size 100px
+        line-height 1
+        content "\201C"
+    span
+        display block
+        margin-top 7px
+    p
+        &:last-child
+            margin-bottom 0
+
+.md-table
+    width 100%
+    margin-bottom tf_margin
+    display block
+    overflow auto
+
+.inline-list, .frame__content .inline-list
+    fl(w)
+    li
+        display block
+        margin 0
+    &_nogap
+        margin-bottom 0
+    &_gap
+        margin-bottom 25px
+        li
+            margin-bottom 12px
+            margin-right 12px
+    &_gapx
+        margin-bottom -12px
+        li
+            margin-right 12px
+            margin-bottom 12px
+    
+
+table:not(.int-table__table):not(.hljs-ln)
+    width 100%
+    border-collapse collapse
+    th
+        padding 17px 15px
+        font-weight 400
+        text-align left
+        &:first-child
+            padding-left 30px
+        &:last-child
+            padding-right 30px
+    td
+        padding 12px 15px
+        &:first-child
+            padding-left 30px
+        &:last-child
+            padding-right 30px
+
+.frame__inlayout-content
+    & > :first-child
+        margin-top 0 !important
+    & > :last-child
+        margin-bottom 0 !important
+
+.frame__content, .tf-content
+    ol
+        line-height 1.5
+        margin-bottom tf_text_margin
+        padding-bottom 1px
+        margin-left 30px
+        li
+            margin-bottom 12px
+            position relative
+            &:before
+                padding-right 7px
+                absolute left -27px
+                width 20px
+                text-align right
+                font-size 90%
+                content: counter(list)
+            &:last-child
+                margin-bottom 0
+        ul, ol
+            margin-top 12px
+            margin-bottom 12px
+
+    ul
+        list-style disc
+        margin-left 15px
+        line-height 1.5
+        margin-bottom tf_text_margin
+        margin-left 30px
+        padding-bottom 1px
+        li
+            margin-bottom 12px
+            &:before
+                display none
+            &:last-child
+                margin-bottom 0
+        ul, ol
+            margin-top 12px
+            margin-bottom 12px
+
+    dl
+        fl(w,sb)
+        margin-top 0
+        margin-bottom tf_margin - tf_text_margin
+        dt
+            font-weight 700
+            padding-right 10px
+            width 20%
+            margin-bottom tf_text_margin
+        dd
+            margin-left 0
+            padding-left 0
+            width 80%
+            margin-bottom tf_text_margin
+
+kbd
+    padding 2px 5px 4px 5px
+    margin-left 5px
+    margin-right 5px
+    display inline
+    font-family inherit
+    color cl_white
+    background-color cl_black
+
+
+code
+    font-family inherit
+    display inline
+    padding 2px 4px
+    color var(--tc_code_text)
+    background-color var(--tc_code_bg)
+    margin-bottom tf_margin
+    white-space nowrap
+
+
+pre
+    font-family inherit
+    &:before
+        font-family inherit
+    code
+        padding 30px
+        width 100%
+        white-space pre
+        display block
+        font-family inherit
+        border-radius 0px 0px var(--tc_border_radius) var(--tc_border_radius)
+        {lt} &
+            background-color var(--tc_ui_bg) !important
+        {dt} &
+            background-color var(--tc_ui_bg_d) !important
+            color var(--tc_text_caption) !important
+            .hljs-tag
+                color var(--tc_text_caption) !important
+
+.vue-example
+    border 1px solid var(--tc_border)
+    padding 30px
+    margin-bottom tf_text_margin
+    display inline-block
+
+
+// Help Classes
+
+.tag, .tags a
+    background-color var(--tc_ui_bg_semi)
+    padding 5px 10px
+    margin-right 5px
+    margin-bottom 5px
+    min-width 1px
+    color var(--tc_link_semi)
+    font-size 0.75rem
+    border-radius 2px
+    display inline-block
+    &:hover
+        text-decoration none
+        background-color var(--tc_ui_bg_semi_v)
+        color var(--tc_link_semi)
+    &:active
+        background-color var(--tc_link_color_bg)
+        color var(--tc_link_color_text)
+
+
+.page-map-anchor, .tf-anchor
+    color var(--tc_text)
+    icon(hashtag)
+    position relative
+    &:before
+        font-size 70%
+        width 20px
+        margin-left -25px
+        margin-right 5px
+        text-align right
+        color var(--tc_link)
+    &:hover, &:focus, &:active
+        color var(--tc_text)
+
+.block
+    display block
+
+.tf
+    &-height-100
+        height 100%
+    &-size
+        &-small
+            font-size 12px
+        &-title
+            font-size 30px
+    &-img
+        box-shadow var(--tc_shadow_smr)
+        border-radius var(--tc_border_radius)
+    &-circle
+        border-radius 50%
+    &-titlenav
+        list-style none !important
+        margin 0 !important
+        font-size 13px
+        padding 0
+        li
+            ul
+                list-style none
+    &-blcode
+        padding 2px 5px 4px 5px
+        margin-left 5px
+        margin-right 5px
+    &-dl
+        margin-bottom 30px
+        dl
+            margin-bottom 15px
+    &-formcaption
+        display block
+        width 100%
+        margin-bottom 12px
+        line-height 1.6
+    &-rcaption
+        text-align center
+        display block
+        width 100%
+        margin-bottom 30px
+        span
+            padding-right 10px
+    &-centerlink
+        text-align center
+        &_afterframe
+            margin-top -5px
+            position relative
+    &-hyplink
+        text-transform uppercase
+        font-size 10px
+        font-weight 700
+        display inline-flex
+        align-items center
+        cursor pointer
+        .icon
+            margin-right 5px
+    &-form
+        &-title
+            margin-bottom 0
+        &-text
+            line-height 1.43
+            margin-bottom 0
+        &-title + p
+            margin-top 5px
+    &-dottedlink
+        font-size f_normal
+        border-bottom 1px dashed
+        &:hover
+            text-decoration none
+    &-pagetitle
+        font-size f_middle
+        display block
+        margin-bottom 30px
+        font-weight 700
+    &-shadow
+        box-shadow var(--tc_ui_shadow)
+    &-caption
+        font-size 13px
+        display block
+        width 100%
+        &_mb-m
+            margin-bottom 20px
+    &-bcaption
+        font-size 13px
+        display block
+        width 100%
+        &_mc
+            margin-bottom 7px
+
+    // TODO: dont know where its using, guess its old code, check this.
+    // &-infoblock
+    //     text-align center
+    //     width 100%
+    //     display block
+    //     &_pd
+    //         padding-top 20px
+    //         padding-bottom 20px
+    //     &_smart
+    //         max-width 310px
+    //         margin-left auto
+    //         margin-right auto
+    //     &_dashboard
+    //         padding-top 10px
+    //         padding-bottom 20px
+    //     &_center
+    //         margin auto
+    //     p
+    //         display block
+    //         font-size f_big
+    //         margin-bottom 30px
+    //         font-weight 400
+    //     .btn
+    //         display inline-block
+    //         margin-left 5px
+    //         margin-right 5px
+    //         margin-bottom 10px
+
+
+@media maw[dsm]
+    .page-map-anchor, .tf-anchor
+        &:before
+            margin-left 0
+            text-align left
+            width auto
+
+
+@media maw[tmd]
+    .frame__content
+        dl
+            dt
+                width 100%
+                margin-bottom 15px
+            dd
+                width 100%
+
+@media maw[tsm]
+    .tf
+        &-pagetitle
+            margin-bottom 20px
+            &_mobile-pleft
+                padding-left 20px
+        // TODO: dont know where its using, guess its old code, check this.
+        // &-centerlink
+        //     &_dashboard
+        //         margin-bottom 20px
+
+

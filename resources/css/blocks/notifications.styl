@@ -1,0 +1,24 @@
+.system-notify-container
+  
+  &.is-header
+
+    .awema-notify
+      padding: 5px 10px
+      
+      &__content
+        justify-content: center
+  
+  &.position-top-center.is-top
+    
+    @media miw[tlg]
+      left: calc(50% + 105px)
+    
+    @media miw[dsm]
+      left: calc(50% + 130px)
+  
+  &.is-frame
+    position: absolute
+    top: 0
+    left: 50%
+    transform: translate(-50%, -50%)
+    max-width: 80%

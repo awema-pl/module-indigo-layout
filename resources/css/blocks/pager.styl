@@ -1,0 +1,104 @@
+.pager
+    padding-top 30px
+    fl(,sb,c)
+    margin-bottom -10px
+    & &__caption
+        font-size f_small
+        color var(--tc_link_semi)
+        display block
+        width 20% 
+        margin-bottom 10px
+        padding-left 20px
+    & &__shows
+        width 20%
+        padding-right 20px
+        fl(w,fe,c)
+        margin-bottom 10px
+        &-link
+            position relative
+            font-size f_small
+            padding-right 15px
+            display block
+            color var(--tc_link_semi)                
+            &:after
+                angle()
+            &:hover
+                text-decoration none
+                color var(--tc_link_semi_active)
+                &:after
+                    border-top-color var(--tc_link_semi_active)
+    & &__links
+        fl(,c,c)
+        margin-bottom 10px
+        &-wrap
+            fl(,c,c)
+            padding-left 1px
+        span
+            &:first-child
+                & ^[0]__link
+                    border-radius var(--tc_border_radius) 0px 0px var(--tc_border_radius)
+            &:last-child
+                & ^[0]__link
+                    border-radius 0 var(--tc_border_radius) var(--tc_border_radius) 0    
+    & &__arr-left, & &__arr-right
+        size 30px
+        fl(,c,c)
+        border-radius 50%
+        line-height 4px
+        font-size 5px
+        color var(--tc_link_semi)
+        &:hover
+            text-decoration none
+            color var(--tc_link_semi_active)
+    & &__arr-left
+        margin-right 10px
+    & &__arr-right
+        margin-left 10px
+    .context-menu
+        z-index 1
+
+
+@media maw[dsm]
+    .pager
+        padding-top 25px
+        & &__caption
+            width auto
+            padding-left 0
+        & &__shows
+            width auto
+            padding-right 0
+
+@media maw[tmd]
+    .pager
+        flex-wrap wrap
+        padding-top 15px
+        justify-content center
+        & &__caption
+            order 2
+            margin-right 15px
+            margin-left 15px
+        & &__shows
+            order 3
+            margin-right 15px
+            margin-left 15px
+        & &__middle
+            order 1
+            width 100%
+            padding-top 15px
+        & &__links
+            width 100%
+            margin-bottom 21px
+            &-wrap
+                flex-wrap wrap
+
+@media maw[mmd]
+    .pager
+        & &__links
+            flex-wrap wrap
+            &-wrap
+                width 100%
+                order 1
+        & &__arr-left
+            margin-right 5px
+        & &__arr-right
+            margin-left 5px

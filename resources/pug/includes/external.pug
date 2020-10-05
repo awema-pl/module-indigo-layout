@@ -1,0 +1,31 @@
+block pageVariables
+doctype html
+html(lang="en")
+    head
+        title= pageTitle
+        include frames/metahead
+        block pageHead
+    body
+        content-wrapper(class="mainwrapper")
+
+            .static-page
+                .static-page__head
+                    nav.static-page__wrap
+                        .static-page__wrap-left
+                            h2.static-page__title= pageTitle
+                            a.static-page__search-link(href='')
+                                i.icon.icon-search 
+                        .static-page__wrap-right
+                            block rightHead
+                .static-page__wrap
+                    .static-page__content
+                        .static-page__cell(class=pageContentClass)
+                            block pageContent
+                                p Content Block
+                    footer.static-page__footer
+                        .static-page__footer-logo
+                            i.icon.icon-logo
+                            span
+                                | Powered by 
+                                a(href='') AwemaCRM
+                        

@@ -1,0 +1,118 @@
+fb-input, fb-select, fb-textarea, fb-uploader, fb-editor, fb-company-slug, fb-multi-block, filter-builder
+    animation placeholderAnimation 30s infinite linear
+
+form-builder
+    opacity 0
+    animation phShow 1.5s 1 forwards !important
+
+fb-radio-group
+    size 100% 40px
+    border 5px solid var(--tc_ui_bg_darken)
+    display block
+    margin-bottom 10px
+    position relative
+    border-radius 2px
+    &:before
+        absolute left 33% top 0
+        size 5px 100%
+        background-color var(--tc_ui_bg_darken)
+        display block
+        content ''
+    &:after
+        absolute left 66% top 0
+        size 5px 100%
+        background-color var(--tc_ui_bg_darken)
+        display block
+        content ''
+    
+fb-group
+    fl(w,sb)
+    *[cell="2"]
+        width calc(50% - 5px) !important
+    *[cell="3"]
+        width calc(33.333% - 5px) !important
+
+
+fb-input, fb-checkbox, fb-textarea, fb-select, fb-slider, fb-phone, fb-uploader, fb-editor, fb-company-slug, fb-multi-block
+    width: 100%   
+
+fb-slider
+    position relative
+    &:before
+        size 100% 6px
+        display block
+        absolute left 0 top 50%
+        margin-top -3px
+        content ""
+    &:after
+        size 30px
+        border-radius 50%
+        absolute left 50% top 50%
+        margin -15px 0 0 -15px
+        animation fbslider 5s infinite ease
+        content ''
+
+@keyframes fbslider
+    0%
+        left 50%
+    40%
+        left 90%
+    60%
+        left 10%
+    100%
+        left 50%
+
+
+fb-input, fb-select, fb-phone, fb-slider, fb-company-slug, fb-multi-block
+    display inline-block
+    width 100%
+    height: 50px
+    border-radius 2px
+
+filter-builder
+    display inline-block
+    min-width 100px
+    margin-right 2px
+    height 32px
+    border-radius 2px
+
+fb-textarea, fb-uploader, fb-editor
+    height 92px
+    display block
+    border-radius 2px
+
+fb-uploader
+    height 120px 
+
+fb-checkbox
+    margin-top 10px
+    height 22px
+    display block
+    position relative
+    margin-right 190px
+    border-radius 2px
+    &:before
+        size 22px
+        absolute left 0 top 0
+        display block
+        content ''
+    &:after
+        size 170px 15px
+        absolute left 35px top 50%
+        margin-top -7px
+        display block
+        border-radius 2px
+        content ''
+
+
+{dt}
+    fb-checkbox, fb-textarea, fb-input, fb-select, fb-editor, fb-company-slug, filter-builder
+        opacity 0.7
+
+
+fb-input, fb-select, fb-multi-block, filter-builder, fb-textarea, fb-editor, fb-checkbox:before, fb-checkbox:after, fb-phone, fb-slider:before, fb-slider:after, fb-uploader, fb-company-slug
+    background-color var(--tc_ui_bg_darken)
+    {dt} &
+        phAnimation(--tc_ui_bg_darken, --tc_ui_bg_stn)
+    {lt} &
+        phAnimation(--tc_ui_bg_darken, --tc_ui_bg_std)

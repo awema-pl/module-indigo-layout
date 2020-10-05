@@ -1,0 +1,44 @@
+block pageVariables
+doctype html
+html(lang="en")
+    head
+        title= pageTitle
+        include frames/metahead
+        block pageHead
+    body
+        content-wrapper(class="mainwrapper")
+            div(class="frame")
+                transition(enter-active-class="animated fadeIn" leave-active-class="animated fadeOut")
+                    .frame__overlay(v-show="$awemaLayoutCrm.togglenav || $awemaLayoutCrm.showUserMenu" @click="$awemaLayoutCrm.overlayClick")
+                include frames/aside
+                div(class="frame__right")
+                    .frame__header
+                        .frame__header-top
+                            form.frame__search#search(v-bind:class="{ active: $awemaLayoutCrm.showSearch }" action="js" method="get")
+                                span.frame__search-link(v-on:click="$awemaLayoutCrm.showSearch = !$awemaLayoutCrm.showSearch")
+                                    i.icon.icon-search
+                                .frame__search-hidden
+                                    input.frame__search-input(type="text" placeholder="Search...")
+                                    button.frame__search-btn(type="submit") Search
+                                    span.frame__search-close(v-on:click="$awemaLayoutCrm.showSearch = !$awemaLayoutCrm.showSearch")
+                                    i.icon.icon-cross
+                            .frame__userinfo
+                                a.frame__userinfo-link(href="")
+                                    span.icon.icon-ruppor
+                                        i.icn-dot
+                                span.frame__header-add
+                                    i.icon.icon-plus
+                                a.frame__userinfo-link(href="")
+                                    span.icon.icon-hdd
+                                        i.icn-dot
+                        .frame__header-line
+                            h1.frame__header-title= pageTitle
+
+                    transition(name="user-menu")
+                        .user-menu(v-show="$awemaLayoutCrm.showUserMenu" style="display: none;")
+                            include frames/user-menu
+                    div.frame__content
+                        button.frame__header-add
+                            i.icon.icon-plus
+                        block pageContent
+                            p Content Block

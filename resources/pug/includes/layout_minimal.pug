@@ -1,0 +1,11 @@
+block pageVariables
+doctype html
+html(lang="en")
+    head
+        title= pageTitle
+        include frames/metahead
+        block pageHead
+    body
+        content-wrapper(class="mainwrapper")
+
+            block pageContent

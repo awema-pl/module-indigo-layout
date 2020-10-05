@@ -1,0 +1,164 @@
+.filter
+  width 100%
+  position relative
+  z-index 11 //3
+  margin-bottom 10px
+  & + .section
+    margin-top 0
+  & &__rlink
+    margin-left 20px
+    display inline-block
+    vertical-align middle
+    line-height 1
+  & &__slink
+    fl(,,c)
+    text(f_small)
+    cursor pointer
+    tr(0.3)
+    position relative
+    padding 15px
+    padding-left 0
+    min-height 1px
+    white-space: nowrap
+    .icon
+      size 18px 15px
+      display block
+      margin-right 10px
+      tr(0.3)
+      font-size 15px
+      position relative
+    &:after
+      angle()
+  &__reset
+    .icon-circle-cross
+      transform: translateY(2px)
+    @media maw[tsm]
+      width: calc(100% - 10px) !important
+    @media miw[tsm]
+      float: right
+      min-width: inherit !important
+      padding-left: 20px !important
+      padding-right: 20px !important
+  .slide-up-down
+    width calc(100% - 20px)
+    margin-left 10px
+    margin-right 10px
+    .form-builder
+      margin-bottom 10px
+  .line-btns
+    padding-top 10px
+
+
+
+
+.hfilter
+  absolute right 0 top 100%
+  z-index 7
+  width 100%
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1)
+  display none
+  overflow auto
+  & &__close
+    absolute right 30px top 30px
+    font-size 18px
+    cursor pointer
+  & &__wrap
+    fl(w)
+    position relative
+    padding 20px 15px 10px 15px
+  & &__title
+    display none
+  & &__buttons
+    fl(w,sb,c)
+    width 100%
+    padding-top 10px
+    &-left
+      fl(w)
+  .btn
+    margin-left 5px
+    margin-right 5px
+    margin-bottom 10px
+    .icon
+      font-size 12px
+      line-height 12px
+      margin-top 2px
+  .input
+    margin-left 5px
+    margin-right 5px
+  
+    
+
+
+@media maw[dsm]
+  .filter
+    margin-bottom 10px
+    & &__right
+      padding-right 0
+
+
+@media maw[tsm]
+  .hfilter
+    .input
+      width calc(100% - 10px)
+
+@media maw[mlg]
+
+  .filter
+    .btn-group
+      display flex
+      .btn
+        flex-grow 1
+    & &__rlink
+      margin-left 15px
+      margin-right 15px
+      &:first-child
+        margin-left 15px
+    .line-btns
+      fl()
+      margin-left -5px
+      margin-right -5px
+      width calc(100 + 4px)
+      .btn
+        min-width 1px
+        margin-left 5px
+        margin-right 5px
+        flex-grow 1
+    
+
+  .js-window
+    fixed top 0 left 0 
+    z-index 9
+    size 100%
+    padding 10px
+  
+  body 
+    .shadow-overflow
+      z-index 9
+
+  .hfilter
+    margin-top 0
+    & &__wrap
+      display block
+
+    & &__title
+      display block
+      margin-bottom 25px
+      padding-left 5px
+      padding-right 5px
+      font-size f_big
+    & &__wrap
+      padding 25px 25px 15px 25px
+    & &__buttons
+      &-left
+        width 100%
+        fl(w,sb)
+        .btn
+          min-width calc(50% - 10px)
+          width calc(50% - 10px)
+      &-right
+        width 100%
+        text-align center
+        padding-top 10px
+        fl(,c,c) 
+
+  

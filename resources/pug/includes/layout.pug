@@ -1,0 +1,37 @@
+block pageVariables
+doctype html
+html(lang="en")
+    head
+        title= pageTitle
+        include frames/metahead
+        block pageHead
+    body
+        content-wrapper(class="mainwrapper")
+            awema-notify-container.position-top-center(name="top" stack="top" :config="{theme: 'inline, rounded'}")
+            div(class="frame")
+                transition(enter-active-class="animated fadeIn" leave-active-class="animated fadeOut")
+                    .frame__overlay(v-show="$awemaLayoutCrm.togglenav || $awemaLayoutCrm.showUserMenu" @click="$awemaLayoutCrm.overlayClick")
+                if(!asideFalse)
+                    include frames/aside
+                .frame__right(class=typeof headLinks === "undefined" ? undefined : "frame__right_nui")
+                    awema-notify-container(name="header" stack="false" :config="{theme:'inline', timeout: 0}")
+                    include frames/header
+                    div.frame__content
+                        awema-notify-container.frame__awema-notify-container(name="frame" stack="false" :config="{theme: 'inline', status: 'warning', timeout: 0}")
+                        if(!removePlus)
+                            button.frame__header-add
+                                i.icon.icon-plus
+                        .frame__inlayout
+                            if(asideBlock)
+                                .frame__inlayout-aside
+                                    block pageAside
+                                        p Aside Block
+                            .frame__inlayout-content
+                                block pageContent
+                                    p Content Block
+                    span.frame__copyright © 2019 - PkgKit - Proudly powered on 
+                        a(href="") Awema.PL Platform
+                        |.
+                    .float-icns
+                        button.float-icns__icon.float-icns__icon_helper(@click="$awemaLayoutCrm.showHelpers = ! $awemaLayoutCrm.showHelpers") ?
+

@@ -1,0 +1,692 @@
+// .header-notification + .frame
+//   min-height calc(100vh - 47px)
+
+.frame
+  fl()
+  min-height 100vh
+  & &__inlayout
+    fl(,sb)
+    &-content
+      order 1
+      width 100%
+    &-aside
+      width 300px
+      order 2
+      & + ^[0]__inlayout-content
+        width calc(100% - 300px)
+        padding-right 40px
+  & &__mobile-shadow
+    display none
+  & &__title-line
+    position relative
+    fl(,,c)
+  & &__copyright
+    display: block
+    padding 15px 40px
+    color var(--tc_text_caption)
+    font-size f_small
+  & &__aside
+    width 260px
+    height 100vh
+    overflow auto
+    flex-shrink 0
+    z-index 12
+    background-image var(--tc_aside_gradient)
+    box-shadow var(--tc_aside_shadow)
+    fixed left 0 top 0
+    &-mhead
+      display none
+    & + ^[0]__right
+      width calc(100% - 260px)
+      margin-left 260px
+    &-intitle
+      color var(--tc_aside_link)
+    &-callbtn
+      display none   
+    &-mnav
+      display none
+    &-nav-inwrap .icon-angle-bottom
+      color var(--tc_aside_link)
+    &-mtitle
+      display block
+      overflow hidden
+      text-overflow ellipsis
+      margin-bottom 0
+      color var(--tc_aside_text)
+      a
+        color var(--tc_aside_text)
+    &-open
+      size 64px
+      position relative
+      z-index 1
+      cursor pointer
+      display none
+      span
+        size 24px 2px
+        display block
+        absolute left 50% top 50%
+        transform translate(-50%, -50%)
+        transition all 0.3s ease
+        border-radius 3px
+        background-color var(--tc_aside_link)
+        &:before
+          size 24px 2px
+          display block
+          absolute left 0 top -7px
+          transition all 0.3s ease
+          border-radius 3px
+          background-color var(--tc_aside_link)
+          content ""
+        &:after
+          size 24px 2px
+          display block
+          transition all 0.3s ease
+          border-radius 3px
+          absolute left 0 bottom -7px
+          background-color var(--tc_aside_link)
+          content ""
+    &-title
+      text(f_big, 700)
+      fl(,c,c)
+      padding 20px
+      min-height 110px
+      margin-bottom 0
+      background-color var(--tc_aside_bg_dark)
+      color var(--tc_aside_text)
+      span, a
+        text-overflow ellipsis
+        max-width 100%
+        overflow hidden
+        display block
+        color var(--tc_aside_link)
+      
+    &-hidden
+      padding: 0
+      padding-bottom 10px
+      margin: 0
+      list-style: none
+      &.has-background
+        background-color var(--tc_aside_bg_nav)
+      // display none
+      // &.active
+      //   display block        
+    &-inlist
+      fl(,,c)
+      margin: 0
+      min-height 46px
+      width 100%
+      padding 10px 30px 10px 49px
+      position relative
+      tr(0.5)
+    &-inlink
+      fl()
+      font-size f_small
+      position relative
+      padding-left 17px
+      color var(--tc_aside_link)
+      opacity 0.7
+      &:before
+        opacity 0.5
+        absolute left 5px top 50%
+        display block
+        flex-shrink 0
+        background-color var(--tc_aside_link)
+        size 5px 1px
+        tr(0.3)
+        content ""
+      &:hover, &_active
+        opacity 1
+        text-decoration none
+        &:before
+          left 0
+          width 10px
+          background-color var(--tc_aside_link)
+          opacity 1
+    &-close
+      color var(--tc_aside_text)
+    &-links
+      margin: 0
+      padding: 0
+      list-style: none
+    &-link
+      fl(,,c)
+      min-height 60px
+      width 100%
+      padding 10px 30px
+      position relative
+      opacity 0.7
+      tr(0.5)
+      color var(--tc_aside_link)
+      &:before
+        display block
+        size 100% 0px
+        absolute left 0 bottom 0
+        z-index -1
+        tr(0.3)
+        content ''
+      .icon
+        size 20px 17px
+        text-align center
+        font-size 17px
+        display block
+        margin-right 15px
+        tr(0.3)
+      .icon-angle-bottom
+        fl(w,c,c)
+        margin-right: 0
+        font-size 5px
+        absolute right 0 top 0
+        bottom 0
+        size 50px auto
+        &:before
+          tr(0.3)
+        &:after
+          content ''
+          display block
+          absolute left 0 top 1rem
+          bottom 1rem
+          width 1px
+          background-color currentColor
+          opacity .5
+      &_active,
+      &.is-active
+        opacity 1
+        &:before
+          height 100%
+          background-color var(--tc_aside_bg_nav)
+        .icon-angle-bottom:before
+          transform scaleY(-1)
+      &_sub
+        pointer-events auto !important
+        padding-right 50px
+      &:not(.no-hover):hover
+        opacity 1
+        text-decoration none
+    &-li
+      margin: 0
+      &_active
+        div
+          display block !important
+          height auto !important
+        & ^[0]__aside-link
+          opacity 1
+          &:before
+            height 100%
+            background-color var(--tc_aside_bg_dark)
+  & &__rccell
+    margin-left 15px
+    & + ^[0]__header-link
+      margin-left 30px 
+  & &__max
+    max-width 680px
+  & &__right
+    width 100%
+    position relative
+    background-color var(--tc_page_bg)
+  
+  & &__header
+    min-height 110px
+    position relative
+    background-color var(--tc_header_bg)
+    &-rlinks
+      absolute right 0 top 0
+      height 50px
+      fl(,fe,c)
+      padding-right 30px
+    &-link
+      margin-left 20px
+      color var(--tc_link_semi)
+      &:hover
+        color var(--tc_link_semi_active)
+    &-callbtn
+      margin-left 30px
+      padding-top 12px
+      padding-bottom 12px
+      &:hover
+        text-decoration none
+    &-lwrap
+      width 70%
+      fl(w,sb,c)
+      padding-right 40px
+    &-rlink
+      size 42px 32px
+      border-radius 16px
+      border 1px solid
+      fl(,c,c)
+      font-size 14px
+      border-color var(--tc_header_iconlink)
+      color var(--tc_header_iconlink)
+      &:hover
+        background-color var(--tc_header_iconlink)
+        color var(--tc_header_iconlink_active)
+    &-top
+      padding-left 40px
+      min-height 50px
+      width 100%
+      fl(,sb,c)
+    &-title
+      text(f_big, 700, 1)
+      margin-bottom 0
+      color var(--tc_text)
+    &-line
+      padding 10px 40px 15px 40px
+    &-filter
+      font-size 15px
+      position relative
+      size 32px 15px
+      cursor pointer
+      tr(0.3)
+      color var(--tc_header_link)
+      .icon
+        position relative
+      &:after
+        angle()
+      &:hover
+        color var(--tc_header_link_active)
+    &-btn
+      absolute right 40px bottom 0
+      size 48px
+      z-index 2
+      transform translateY(50%)
+    &-add
+      size 48px
+      cursor pointer
+      border-radius 50%
+      tr(0.3)
+      font-size 19px
+      fl(,c,c)
+      box-shadow 0 0 7px rgba(85, 61, 0, 0.15)
+      background-color var(--tc_ui_btn_smcolor)
+      color var(--tc_ui_btn_smcolor_text)
+      &:hover
+        background-color var(--tc_ui_btn_smcolor_active)
+        color var(--tc_ui_btn_smcolor_text)
+  & &__userava
+    display block
+    position: relative
+    size 50px
+    overflow: hidden
+    margin-left 10px
+    &:after
+        content ''
+        background-image linear-gradient(to top, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.1) 50%, rgba(255,255,255,0) 100%)
+        absolute left 0 top 0
+        width: 100%
+        height: 200%
+        display block
+        z-index 2
+        transition: transform 150ms ease
+    img, .icon-user
+        size 100%
+        z-index 1
+        font-size 20px
+        absolute left 0 top 0
+        display block
+    &:hover, &:active
+      &:after
+        transform: translateY(-50%)
+  & &__search
+    fl(,,c)
+    &-link
+      size 20px
+      display block
+      cursor pointer
+      margin-right 10px
+      flex-shrink 0
+      font-size 20px
+      tr(0.3)
+      color var(--tc_header_link)
+      &:hover
+        color var(--tc_header_link_active)
+    &.active
+      & ^[0]__search-hidden
+        width 275px
+    &-btn
+      display none
+    &-input
+      width 100%
+      height 26px
+      font-size 16px
+      border-bottom 1px solid var(--tc_border_ins)
+      background-color transparent
+      color var(--tc_text)
+      &:focus
+        border-bottom 1px solid var(--tc_border_active)
+    &-hidden
+      position relative
+      tr(0.3)
+      width 0
+      overflow hidden
+      fl(,,c)
+    &-close
+      size 26px
+      fl(,c,c)
+      tr(0.3)
+      flex-shrink 0
+      cursor pointer
+      font-size 14px
+      color var(--tc_header_link)
+      &:hover
+        color var(--tc_header_link_active)
+  & &__content
+    padding 30px 40px
+    position relative
+    min-height calc(100vh - 155px)
+    &-nav
+      box-shadow: inset 0 -1px 0 0 var(--tc_border)
+      .tab-nav
+        box-shadow: none
+      &:first-child
+        padding 0 40px
+        margin: -30px -40px 30px
+  & &__overlay
+    fixed top left
+    width 100%
+    bottom 0
+    z-index 12
+    &.animated
+      animation-duration .15s
+
+
+@media miw[tlg]
+  .frame
+    & &__usermenu
+      .context-menu__overlay
+        display: none
+    & &__overlay
+      opacity 0 !important
+
+@media maw[dlg]
+  .frame
+    & &__inlayout
+      flex-wrap wrap
+      &-content
+        width 100%
+        order 2
+      &-aside
+        width 100%
+        order 1
+        & + ^[0]__inlayout-content
+          width 100%
+          padding 0
+          order 1
+      &-block
+        padding-left 0px
+        width 100%
+        border 0 !important
+        position static !important
+        margin-bottom 30px
+
+@media maw[dsm]
+  .frame
+    & &__aside
+      width 210px
+      & + ^[0]__right
+        width calc(100% - 210px)
+        margin-left 210px
+      &-title
+        padding-left 15px
+        padding-right 15px
+        font-size f_big_1000
+        min-height 100px
+      &-link
+        padding-left 15px
+        padding-right 15px
+        min-height 50px
+    & &__content
+      padding 30px 20px
+      &-nav:first-child
+        padding-left: 20px
+        padding-right: 20px
+        margin-left: -20px
+        margin-right: -20px
+    & &__header
+      min-height 100px
+      &-line
+        padding-left 20px
+        padding-right 20px
+      &-top
+        padding-left 20px
+      &-title
+        font-size f_big_1000
+      &-btn
+        right 20px
+    & &__copyright
+      padding-left 20px
+      padding-right 20px
+
+@media maw[tlg]
+
+  body.js-nav-overflow
+    overflow hidden !important
+
+  .frame
+    & &__right
+      width 100%
+      padding-top 64px
+    & &__rccell
+      margin-left 0
+      padding 10px 40px
+      width 100%
+      order 100
+      margin-top 20px
+      color var(--tc_aside_link)
+      .theme-switcher
+        &__label
+          color var(--tc_aside_link) !important
+          opacity 0.7
+        &:hover
+          .theme-switcher__label
+            opacity 1
+      & + ^[0]__head-link
+        margin-left 0
+    & &__header
+      &-rlinks
+        display none
+    & &__mobile-shadow
+      fixed top 0 left 0
+      width 100%
+      height 100vh
+      z-index 7
+      display none
+      &.active
+        display block
+    & &__aside
+      width auto
+      box-shadow none
+      position static
+      overflow hidden
+      z-index auto
+      &-mnav
+        display block
+        .theme-switcher
+          &__label
+            color var(--tc_aside_link)
+          &:hover
+            .theme-switcher__label
+              color var(--tc_aside_link)
+      &-open
+        display block
+      & + ^[0]__right
+        width 100%
+        margin-left 0
+      &-callbtn
+        display block
+        margin-right 15px
+        padding-left 25px
+        padding-right 25px
+        min-width 1px
+        white-space nowrap
+      &-close
+        font-size 17px
+        display block
+        margin-right 36px
+      &-mhead
+        height 64px
+        fl(,,c)
+        padding-left 20px
+        padding-right 20px
+        font-size f_middle
+        white-space nowrap
+        text-overflow ellipsis
+      &-nav
+        fixed top 0px left -270px
+        width 270px
+        height 100vh
+        display flex
+        z-index 12
+        justify-content space-between
+        flex-direction column
+        opacity 0
+        transition left 0.3s ease, opacity 0.2s ease
+        background-image var(--tc_aside_gradient)
+        &.active
+          left 0
+          opacity 1
+          box-shadow 0 0 30px rgba(0,0,0,0.1)
+        &-wrap
+          overflow auto
+          absolute left 0 top 64px
+          height calc(100% - 64px)
+          width 100%
+          padding-bottom 100px
+      &-title
+        min-height 60px
+        background-color transparent
+        padding-left 10px
+        padding-right 10px
+        font-weight 400
+        font-size f_middle
+        display block
+        width calc(100% - 128px)
+        span
+          white-space nowrap
+      &-link
+        padding-left 40px
+        padding-right 40px
+        .icon-angle-bottom
+          right 0px
+      &-line
+        fl(,,c)
+        fixed top 0 left 0
+        size 100% 64px
+        z-index 6
+        tr(0.1)
+        background-image var(--tc_aside_gradient_header)
+        color var(--tc_aside_text)
+        {lt} &
+          box-shadow 0 0 30px rgba(0,0,0,0.1)
+        {dt} &
+          box-shadow 0 0 30px alpha(cl_black, 0.7)
+        &_top
+          top -64px
+          box-shadow none
+        &_fixed
+          top 0
+    & &__userava
+      fixed right 7px top 7px
+      z-index 6
+    & &__mobile-shadow, & &__overlay
+      background-color var(--tc_ui_shadow-overflow)
+    & &__usermenu
+      display: none
+    & &__content
+      min-height calc(100vh - 210px)
+      
+
+
+
+
+@media maw[tsm]
+  .frame
+    & &__content
+      padding-top 25px
+      padding-bottom 25px
+      &-nav:first-child
+        margin-top: -25px
+        margin-bottom: 25px
+    & &__copyright
+      padding-bottom 0
+    & &__right
+      padding-bottom 90px
+      &_nui
+        padding-bottom 25px
+        .float-icns
+          bottom 20px
+    & &__search
+      display none
+    & &__header
+      min-height 1px
+      &-lwrap
+        width 100%
+        padding-right 0
+      &-top
+        min-height 1px
+      &-line
+        padding-top 5px
+        padding-bottom 5px
+        fl(,sb,c)
+        min-height 60px
+      &-btn
+        position static
+        transform none
+    & &__userinfo
+      fixed bottom 0 left 0
+      z-index 6
+      fl(,,c)
+      size 100% 60px
+      padding-top 5px
+      padding-bottom 5px
+      padding-left 12%
+      padding-right 12%
+      justify-content space-around
+      background-color var(--tc_header_bg)
+      box-shadow 0px -5px 30px rgba(92,92,92,0.05)
+      &-hidden
+        display none !important
+      &-link
+        width 50%
+        &:first-child
+          padding-right 30px
+        &:last-child
+          padding-left 30px
+      &_twolinks
+        padding 0 !important
+        a
+          border-right 1px solid
+          width 50%
+          text-align center
+          &:nth-child(2)
+            border-right 0 !important
+
+@media maw[mmd]
+  .frame
+    & &__title-line
+      flex-wrap wrap
+      .head-context
+        margin-left 0
+        margin-top 15px
+      & ^[0]__header-title
+        width 100%
+
+@media maw[msm]
+  .frame
+    & &__header
+      &-line
+        padding-left 10px
+        padding-right 10px
+    & &__content
+      padding-left 10px
+      padding-right 10px
+      &-nav:first-child
+        padding-left: 10px
+        padding-right: 10px
+        margin-left: -10px
+        margin-right: -10px
+    & &__copyright
+      padding-left 10px
+      padding-right 10px
+    & &__aside
+      &-title
+        text-align left
+        width calc(100% - 128px)

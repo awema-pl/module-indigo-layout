@@ -1,0 +1,93 @@
+extends includes/layout
+
+block pageVariables
+    - var pageTitle = "Charts example"
+
+block modules
+    script(src="https://cdn.awema.pl/5cd207e2c94eb723c3307764a5693def/awema-pl/charts/v1.0.3/js/main.js")
+
+block pageContent
+    .filter
+        .btn-group
+            filter-builder(label="Chart 1 + Table 1" :param="{chart: 0, table: 0}")
+            filter-builder(label="Chart 2 + Table 1" :param="{chart: 1, table: 0}")
+            filter-builder(label="Chart 3 + Table 2" :param="{chart: 2, table: 1}")
+            filter-builder(label="Error" :param="{chart: '-error'}")
+            filter-builder(label="Empty" :param="{chart: '-empty'}")
+    
+    .grid
+        .cell-1-3
+            .card
+                h2 Content-wrapper + chart
+                content-wrapper(store-data="charts" :url="`/json/chart${$get($route, 'query.chart', 0)}.json`")
+                    template(slot-scope="chartData")
+                        chart-builder(style="width:100%" :data="chartData", :options="{elements:{line:{tension:0},point:{radius:0}},legend:{display:false},scales:{xAxes:[{display:false}],yAxes:[{display:false,ticks:{beginAtZero:true}}]}}")
+        .cell-1-3
+            .card
+                h2 Content-wrapper + table + chart
+                content-wrapper(store-data="tableCW" :url="`/json/table${$get($route, 'query.table', 0)}.json`")
+                    template(slot-scope="tableData")
+                        slide-up-down(:show="!!tableData.chart")
+                            chart-builder(v-if="tableData.chart" style="width:100%" :data="tableData.chart", :options="{elements:{line:{tension:0}, point:{radius:0,hoverRadius:5}}, tooltips:{position:'average', mode:'index', intersect:false, cornerRadius:2, xPadding:20, yPadding:20,bodySpacing:10, titleMarginBottom:20, callbacks:{title:function(items,data){return''+data.labels[items[0].index]+'JANUARY2019'}, label:function(item,data){var title=''+data.datasets[item.datasetIndex].label+'€'+data.datasets[item.datasetIndex].data[item.index];return title.length<30?title:title.substr(0,28)+'...'}}}, hover:{mode:'index',intersect:false,}, legend:{position:'bottom', labels:{usePointStyle:true}}}")
+        
+        .cell-2-5
+            .card
+                content-wrapper(store-data="tableCW" :url="`/json/table${$get($route, 'query.table', 0)}.json`")
+                    template(slot-scope="tableData")
+                        table-builder(store-data="table2" :default="tableData.data")
+                            tb-column(name="name")
+                            tb-column(name="label")
+
+        .cell-3-5
+            .card
+                h2 Table-builder + Pagination
+                table-builder(store-data="table")
+                    tb-column(name="name")
+                    tb-column(name="label")
+                paginate-builder(store-data="table" :url="`/json/table${$get($route, 'query.table', 0)}.json`")
+        .cell-1-3
+            content-wrapper.tf-height-100(:default="{\"datasets\":[{\"data\":[14,35,42,12,2],\"backgroundColor\":[\"rgba(55,179,196,0.6)\",\"rgba(63,135,199,0.6)\",\"rgba(63,75,181,0.6)\",\"rgba(135, 43, 188, 0.6)\",\"rgba(224,93,112,0.6)\"],\"label\":\"Dataset 1\"}],\"labels\":[\"Red\",\"Orange\",\"Yellow\",\"Green\",\"Blue\"]}")
+                template(slot-scope='name0NCySr0u')
+                    .card.card_chartdoughnut
+                        chart-builder.card__chart(:data='name0NCySr0u', type='doughnut', :options="{\
+                        plugins: {\
+                        labels: {\
+                        render: 'value',\
+                        position: 'outside',\
+                        textMargin: 10\
+                        }\
+                        },\
+                        legend: {\
+                        position: 'right',\
+                        fontSize: 14,\
+                        labels: {\
+                        usePointStyle: true\
+                        }\
+                        },\
+                        tooltips: {\
+                        cornerRadius: 2,\
+                        xPadding: 20,\
+                        yPadding: 20,\
+                        bodySpacing: 10\
+                        }\
+                        }")
+                .ph
+                    .ph__chartdoughnut
+                        div(style='width:100%;height:260px; background: white; border-color: var(--tc_border_light); border-radius: 2px; box-shadow: var(--tc_ui_shadow);')
+                            | Placeholder
+                template(slot='loading')
+                    .card.loading-block.card_chartdoughnut(data-loading='Loading...')
+                        .card__wrap.cl-caption
+                            .card__middle-cell
+                template(slot='error')
+                    .card.card_chartdoughnut
+                        .card__wrap.cl-red
+                            .card__middle-cell
+                                i.icon.icon-data-error.card__icon.cl-red
+                                span.card__caption.cl-red Please check your Internet connection
+                template(slot='empty')
+                    .card.card_chartdoughnut
+                        .card__wrap.cl-caption
+                            .card__middle-cell
+                                i.icon.icon-database-error.card__icon.cl-caption
+                                span.card__caption There is not enough data

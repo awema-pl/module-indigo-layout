@@ -1,0 +1,291 @@
+.login-page
+    min-height 100vh
+    position relative
+    fl()
+    & &__full
+        width 100% 
+        background-size cover
+        background-position center center
+        fl(,c,c)
+        padding 15px
+    & &__swrap
+        max-width 480px
+        width 100%
+        margin auto
+        text-align center
+        position relative
+        z-index 5
+    .checkbox
+        &__text 
+            span
+                font-size f_normal
+    & &__ins
+        padding-left 10px
+        padding-right 10px
+        width 100%
+        fl(w)
+        &_center
+            text-align center
+            justify-content center
+        &_mb
+            margin-top 5px
+            margin-bottom 5px
+        
+    & &__sbox
+        padding 50px 40px
+        box-shadow var(--tc_shadow_block)
+    & &__left
+        width 50%
+        min-height 100vh
+        fl(,fe)
+        padding 50px
+        text-align center
+        &-wrap
+            fl()
+            max-width 390px
+            width 100%
+        &-center
+            display block
+            margin auto
+            width 100%
+    & &__qr
+        text-align center
+        padding-top 10px
+        img
+            display inline-block
+            width 200px
+    & &__checkform
+        fl(,sb,c)
+        width 100%
+        padding 15px 10px 0 10px
+        .grid__cell
+            width auto !important
+            flex-shrink 0
+    & &__lostpass
+        display inline-block
+    & &__bg
+        display block
+        background-size cover
+        background-position center center
+        width 50%
+        position relative
+    & &__logo
+        margin-bottom 65px
+        display inline-block
+        position relative
+        text-align center
+        .icon
+            line-height 1
+            font-size 70px
+        img
+            width 70px
+        span
+            font-size 20px
+            display block
+            margin-top 7px
+        &:hover
+            text-decoration none
+
+    & &__form
+        text-align left
+        .line-btns
+            .btn
+                width 100%
+                margin 0
+        &-inframe
+            width 100%
+            text-align center
+            margin-bottom 30px
+        &_btn-center
+            .line-btns
+                text-align center
+                .btn
+                    width auto
+                    display inline-block
+                    min-width 160px
+        &_btn-marg
+            .line-btns
+                margin-top 20px
+    & &__title
+        margin-bottom 5px
+    & &__spacer
+        margin-top 25px
+        margin-bottom 20px
+        display block
+        text-align center
+        position relative
+        overflow hidden
+        i
+            padding-left 20px
+            padding-right 20px
+            display inline-block
+            position relative
+            &:before
+                size 50px 1px
+                absolute left -50px top 50%
+                display block
+                content ''
+            &:after
+                size 50px 1px
+                absolute right -50px top 50%
+                display block
+                content ''
+        &_rc
+            margin-top 5px
+            margin-bottom 35px
+            i
+                font-style normal
+    & &__socials
+        fl(w,c,c)
+        font-size 30px
+        line-height 1
+        a
+            margin-left 10px
+            margin-right 10px
+            border-radius 50%
+            position relative
+            display block
+            &:after
+                background-color #ffffff
+                size 25px
+                border-radius 50%
+                z-index 1
+                absolute left 2px top 2px
+                display block
+                content ''
+            &:before
+                position relative
+                z-index 2
+            &:hover
+                opacity 0.5
+            &.icon-gp
+                color #d23933
+            &.icon-in
+                color #0e76b5
+            &.icon-fb
+                color #2e4185
+    & &__apps
+        fl(,c)
+        &-link
+            display block
+            margin-left 5px
+            margin-right 5px
+            margin-bottom 10px 
+            max-width calc(50% - 10px)
+            img
+                width 135px
+                display block
+            &:hover
+                opacity 0.75
+    
+    & &__footer
+        margin-top 30px
+    
+    .system-notify-container:not(.has-children) + *
+        margin-top 0
+        transition 240ms margin-top ease-out
+
+.system-notify-container
+    
+    &.is-top-auth,
+    &.is-top-auth2
+        position fixed
+        left 0
+        top 0
+        z-index 6
+
+    &.is-top-auth
+        width 50%
+        
+        .system-notify
+            padding 0 50px
+            justify-content flex-end
+            
+            &.theme-inline .system-notify__content
+                max-width 350px
+                padding-left 10px
+    
+    &.is-top-auth2
+        width 100%
+        
+        .system-notify
+            padding 0 15px
+            justify-content center
+            
+            &.theme-inline .system-notify__content
+                padding-left 10px
+                max-width 460px
+        
+
+@media maw[tmd]
+    .login-page
+        & &__left
+            width 75%
+            justify-content center
+        & &__bg
+            width 25%
+    
+    .system-notify-container.is-top-auth
+        width 75%
+        
+        .system-notify
+            justify-content center
+
+
+@media maw[mlg]
+    .login-page
+        & &__bg
+            display none
+        & &__left
+            width 100% 
+        & &__logo
+            margin-bottom 10px
+            display none
+            span
+                display none
+            .icon
+                font-size 50px 
+        & &__full
+            background-image none !important
+            &:before
+                display none
+        & &__sbox
+            padding 0
+            max-width 380px
+            margin-left auto
+            margin-right auto
+            box-shadow none
+        & &__footer
+            margin-top 20px
+        & &__spacer
+            margin-top 15px
+            &_rc
+                margin-top 5px
+        
+    .system-notify-container
+        
+        &.is-top-auth
+            width 100%
+        
+        &.is-top-auth2 .system-notify.theme-inline .system-notify__content
+            max-width 360px
+
+
+@media maw[mmd]
+    .login-page
+        & &__left
+            padding 20px
+    
+    .system-notify-container.is-top-auth .system-notify
+        padding 0 20px
+
+@media maw[msm]
+    .login-page
+        & &__checkform
+            padding-left 0
+            padding-right 0
+
+@media (max-height 700px)
+    .login-page
+        & &__logo
+            display none

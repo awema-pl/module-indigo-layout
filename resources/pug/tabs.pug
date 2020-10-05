@@ -1,0 +1,27 @@
+extends includes/layout.pug
+
+block pageVariables
+    - var pageTitle = "Tags"
+    - var removePlus = true
+
+block pageHead
+    // test
+
+
+
+block pageContent
+
+    tab-builder
+        template(slot='tab-toggler', slot-scope='toggler') {{ toggler.item.label }}
+        tb-link(label='Link 555555555555555555555', url='//google.com')
+        tb-tab(label='Tab 1 1111111111111111111111') Lorem ipsum dolor sit amet consectetur adipisicing elit. A, libero? Dolor accusamus laudantium commodi consequuntur suscipit, est in quia, nobis nemo architecto labore, tempora dignissimos hic minima ex amet voluptate.
+        tb-tab(label='Tab 2 22222222222222222222222') Libero eveniet, assumenda tenetur iure recusandae commodi distinctio velit, dicta excepturi animi ullam minima illum quidem voluptates, minus porro amet?
+            p Debitis quaerat eos qui consequatur distinctio architecto dolores impedit quisquam quia similique blanditiis numquam quasi nulla iusto, temporibus, alias fugit?
+            p Veritatis nobis praesentium enim iste, nesciunt voluptas debitis fuga impedit mollitia porro quisquam, neque necessitatibus nostrum alias voluptatibus vero temporibus.
+            p Aliquid laudantium laboriosam sit voluptates architecto in exercitationem adipisci ducimus voluptas eos blanditiis, dolorum, minus maxime distinctio eveniet pariatur autem.
+            button Test
+        tb-tab(label='Tab 3 33333333333333333333333333333') Test
+        tb-link(label='Link 555555555555555555555', url='//google.com')
+
+
+    p text after tab mobile test
