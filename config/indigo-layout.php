@@ -21,15 +21,15 @@ return [
     // Render icon on external link: list of your all domains where will be showed the website
     'environment_urls' => [env('APP_URL', 'https://example.com')],
 
-    'logo' => env('APP_LOGO', 'https://static.awema.pl/logo-blue.svg'),
+    'logo' => env('APP_LOGO', '/assets/awema-pl/indigo-layout/img/logo.png'),
 
     'fonts' => ['https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700'],
 
     'custom_styles' => '',
 
-    'auth_bg_left' => 'https://static.awema.pl/demo/awema-background.svg',
+    'auth_bg_left' => env('APP_URL') . '/assets/awema-pl/indigo-layout/img/background/bg-'.rand(1, 3).'.jpg',
 
-    'auth_bg_full' => 'https://static.awema.pl/demo/awema-background.svg',
+    'auth_bg_full' => env('APP_URL') .'/assets/awema-pl/indigo-layout/img/background/bg-'.rand(1, 3).'.jpg',
 
     'dist' => [
         'js/main.js',
