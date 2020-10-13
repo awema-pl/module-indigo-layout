@@ -1,4 +1,4 @@
-<form-builder disabled-dialog="" url="{{ route('login') }}" send-text="{{ __('indigo-layout::auth.login.send_text') }}">
+<form-builder :edited="true" disabled-dialog="" url="{{ route('login') }}" send-text="{{ __('indigo-layout::auth.login.send_text') }}">
     <fb-input name="email" type="email" label="{{ __('indigo-layout::auth.general.email') }}" autofocus required autocomplete="email" :debounce="0"></fb-input>
     <fb-input name="password" label="{{ __('indigo-layout::auth.general.password') }}" type="password" required autocomplete="current-password" :debounce="0"></fb-input>
     <div class="login-page__checkform">
