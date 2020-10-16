@@ -23,7 +23,7 @@ return [
             'send_text' => 'Reset Password'
         ],
         'reset' => [
-            'send_text' => 'Change Password'
+            'change_password' => 'Change Password'
         ]
     ]
 ];

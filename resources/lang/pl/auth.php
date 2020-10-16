@@ -23,7 +23,7 @@ return [
             'send_text' => 'Zresetuj hasło'
         ],
         'reset' => [
-            'send_text' => 'Zemiń hasło'
+            'change_password' => 'Zemiń hasło'
         ]
     ]
 ];
