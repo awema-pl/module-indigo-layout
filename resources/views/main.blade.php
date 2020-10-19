@@ -134,8 +134,8 @@
                 </div>
             </div>
 
-            @if(config('indigo-layout.footer_copyright'))
-                <span class="frame__copyright">{!! config('indigo-layout.footer_copyright') !!}</span>
+            @if(config('indigo-layout.show_footer_copyright'))
+                <span class="frame__copyright">{!! _p('indigo-layout::pages.main.footer-copyright', '© :year - Proudly powered on <a href=":link_url" target="_blank">:app_name</a> ', ['year'=>now()->year,'link_url' => config('app.url'), 'app_name' => config('app.name')]) !!}</span>
             @endif
 
             {{-- <div class="float-icns"><button class="float-icns__icon float-icns__icon_helper"></button></div>    --}}

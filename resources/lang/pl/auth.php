@@ -26,5 +26,5 @@ return [
         'reset' => [
             'change_password' => 'Zemiń hasło'
         ]
-    ]
+    ],
 ];

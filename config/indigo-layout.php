@@ -58,5 +58,5 @@ return [
         'name' => 'query'
     ],
 
-    'footer_copyright' => '© 2019 - Proudly powered on <a href="https://www.awema.pl" target="_blank">Awema.PL Platform</a>'
+    'show_footer_copyright' => true,
 ];
