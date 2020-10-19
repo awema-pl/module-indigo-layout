@@ -5,7 +5,8 @@ return [
     'general' => [
         'email' => 'E-mail',
         'password' => 'Hasło',
-        'password_confirmation' => 'Powtórz hasło'
+        'password_confirmation' => 'Powtórz hasło',
+        'new_password' => 'Nowe hasło',
     ],
 
     'login' => [
