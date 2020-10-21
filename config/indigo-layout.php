@@ -50,7 +50,7 @@ return [
     ],
 
     'nav' => [
-        'expanded' => true
+        'expanded' => false
     ],
 
     'search' => [

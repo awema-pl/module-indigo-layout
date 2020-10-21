@@ -8,7 +8,7 @@
                 <!-- single link -->
                 <a  v-if="! item.children"
                     :href="item.link || ''"
-                    :class="['frame__aside-link', {'frame__aside-link_active': active === index }]"
+                    :class="['frame__aside-link', {'frame__aside-link_active':  active === index || itemActive(index) }]"
                 >
                     <i v-if="item.icon" :class="'icon icon-'+item.icon"></i>
                     <span>{{ item.name }}</span>
@@ -21,7 +21,7 @@
                         :is="expanded && !item.link ? 'span' : 'a'"
                         :href="expanded && item.link || ''"
                         :class="['frame__aside-link frame__aside-link_sub',
-                                {'is-active': active === index, 'no-hover': expanded && !item.link }]"
+                                {'is-active': active === index || itemActive(index), 'no-hover': expanded && !item.link }]"
                         @click="item.link ? null : toggleActive($event, index)"
                     >
                         <i v-if="item.icon" :class="'icon icon-'+item.icon"></i>
@@ -31,10 +31,10 @@
                            @click="toggleActive($event, index)"></i>
                     </component>
 
-                    <slide-up-down :show="active === index || expanded">
+                    <slide-up-down :show="active === index || expanded || itemActive(index)">
                         <ul
                             class="frame__aside-hidden"
-                            :class="{'has-background': !expanded || active === index }"
+                            :class="{'has-background': !expanded || active === index || itemActive(index) }"
                         >
                             <li class="frame__aside-inlist"
                                 v-for="(child, i) in item.children"
@@ -124,8 +124,12 @@ export default {
 
         itemActive(index) {
             return this.links[index].active ||
-                   this.expanded ||
-                   this.hasActiveChildren[index]
+                this.expanded ||
+                this.hasActiveChildren(index)
+        },
+
+        hasActiveChildren(index){
+            return this.links[index].children && this.links[index].children.some( child => child.active )
         },
 
         toggleActive( $event, index ) {
@@ -138,6 +142,6 @@ export default {
                 this.active = index
             }
         }
-    }
+    },
 }
 </script>
