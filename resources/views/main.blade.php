@@ -1,9 +1,18 @@
 <!DOCTYPE html>
 <html lang="{{ App::getLocale() }}" @themeswitcher>
 
+@php
+    $awema_custom_config = [
+        'modalWindow' => [
+            'lang' => app(\Illuminate\Contracts\Translation\Translator::class)->get('modal-window::js')
+            ],
+    ];
+@endphp
+
 @include('indigo-layout::chunks.head')
 
 <body>
+
 <content-wrapper class="mainwrapper">
     <div class="frame">
         @notify(['class' => 'position-top-center', 'name' => 'top', 'stack' => 'top', 'config' => "{theme: 'inline, rounded'}"])
@@ -31,20 +40,37 @@
             @notify(['name' => 'header', 'stack' => false, 'config' => "{theme: 'inline', timeout: 0}"])
             <div class="frame__header">
                 <div class="frame__header-top">
-                    <form class="frame__search" id="search" action="{{ config('indigo-layout.search.url') }}" method="get"> <span class="frame__search-link"><i class="icon icon-search"></i></span>
-                        <div class="frame__search-hidden"><input class="frame__search-input" name="{{ config('indigo-layout.search.name') }}" type="text" placeholder="Search..."><button class="frame__search-btn" type="submit">Search</button><span class="frame__search-close"><i class="icon icon-cross"></i></span></div>
+                    <form class="frame__search" id="search" action="{{ config('indigo-layout.search.url') }}" method="get">
+{{--                        <span class="frame__search-link"><i class="icon icon-search"></i></span>--}}
+                        <div class="frame__search-hidden">
+{{--                            <input class="frame__search-input" name="{{ config('indigo-layout.search.name') }}" type="text" placeholder="Search...">--}}
+{{--                            <button class="frame__search-btn" type="submit">Search</button><span class="frame__search-close">--}}
+{{--                                <i class="icon icon-cross"></i>--}}
+{{--                            </span>--}}
+                        </div>
                     </form>
 
 
                     @if(Auth::check())
                         {{--USER AVATAR--}}
-                        <button class="frame__userava" @click="$awemaLayoutCrm.showUserMenu = ! $awemaLayoutCrm.showUserMenu">
-                            @if(isset($user_avatar))
-                                <img src="{{ $user_avatar }}" />
-                            @else
-                                <i class="icon icon-user novatar novatar_box"></i>
-                            @endif
-                        </button>
+
+                           <div class="grid grid-align-center">
+                               <div class="cell-auto"></div>
+                               <div class="cell-inline pr-0 mb-0" @click="$awemaLayoutCrm.showUserMenu = ! $awemaLayoutCrm.showUserMenu">
+                                   <button class="frame__userava tf-img">
+                                       @if(isset($user_avatar))
+                                           <img src="{{ $user_avatar }}" />
+                                       @else
+                                           <img src="//www.gravatar.com/avatar/{{ md5(Auth::user()->email) }}?fs=80'" />
+{{--                                           <i class="icon icon-user novatar novatar_box"></i>--}}
+                                       @endif
+                                   </button>
+                               </div>
+                               <div class="cell-inline pl-0 pr-25" @click="$awemaLayoutCrm.showUserMenu = ! $awemaLayoutCrm.showUserMenu">
+                                  <span class="cl-white tf-size-small tf-pointer tf-text-shadow" >{{Auth::user()->name}}</span>
+                               </div>
+                           </div>
+
                     @endif
 
                     @if(!Auth::check())
@@ -64,11 +90,13 @@
                     @endif
                 </div>
                 <div class="frame__header-line">
-                    @isset($h1)
+
                         <div class="frame__header-left">
-                            <h1 class="frame__header-title">{!! $h1 !!}</h1>
+                            <h1 class="frame__header-title cl-white">
+                                @isset($h1){!! $h1 !!}@endisset @yield('title', '')
+                            </h1>
+
                         </div>
-                    @endisset
 
                     @hasSection('create_button')
                         <div class="frame__header-btn">
@@ -115,7 +143,7 @@
                     </transition>
                 @endif
             </div>
-            
+
 
             <div class="frame__content">
                 @isset($children_top) @navTop(['navigation' => $children_top]) @endisset
@@ -123,7 +151,7 @@
                 <div class="frame__inlayout">
                     @if (!empty($__env->yieldContent('pagemap')))
                         <div class="frame__inlayout-aside">
-                            <page-map content=".frame__inlayout-content" :offset="-70" :sticky='{top: 15, bottom: 15}'>
+                            <page-map content=".frame__inlayout-content" :offset="{{config('indigo-layout.page-map-offset')}}" :sticky='{top: 15, bottom: 15}'>
                                 @yield('pagemap')
                             </page-map>
                         </div>

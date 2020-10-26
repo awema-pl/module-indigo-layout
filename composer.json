@@ -32,6 +32,11 @@
         "awema-pl/module-theme-switcher": "dev-master",
         "awema-pl/module-system-notify": "dev-master",
         "awema-pl/module-base-js": "dev-master",
+        "awema-pl/module-navigation": "dev-master",
+        "awema-pl/module-tab-builder": "dev-master",
+        "awema-pl/module-table-builder": "dev-master",
+        "awema-pl/module-context-menu": "dev-master",
+        "awema-pl/module-localization-helper": "dev-master",
         "illuminate/support": "~5|~6|~7|~8|~9",
         "ext-fileinfo": "*"
     },
@@ -76,6 +81,40 @@
         {
             "type": "path",
             "url": "../Base-js",
+            "options": {
+                "symlink": true
+            }
+        },
+        {
+            "type": "path",
+            "url": "../Navigation",
+            "options": {
+                "symlink": true
+            }
+        },
+        {
+            "type": "path",
+            "url": "../Tab-builder",
+            "options": {
+                "symlink": true
+            }
+        },
+        {
+            "type": "path",
+            "url": "../Context-menu",
+            "options": {
+                "symlink": true
+            }
+        },
+        {
+            "type": "path",
+            "url": "../Localization-helper",
+            "options": {
+                "symlink": true
+            }
+        },        {
+            "type": "path",
+            "url": "../Table-builder",
             "options": {
                 "symlink": true
             }

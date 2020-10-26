@@ -11,7 +11,7 @@
 
 {{-- Check if $name is exist --}}
 @if (!isset($name) || (isset($name) && empty($name)))
-    @php $name = 'name' . str_random(8); @endphp
+    @php $name = 'name' . \Illuminate\Support\Str::random(8); @endphp
 @endif
 
 {{-- Check if api params exist --}}
@@ -21,7 +21,7 @@
 
 {{--General store area for the element--}}
 @if (!isset($store_data) || (isset($store_data) && empty($store_data)))
-    @php $store_data = 'id' . str_random(8); @endphp
+    @php $store_data = 'id' . \Illuminate\Support\Str::random(8); @endphp
 @endif
 
 {{--Scrool in Paginate--}}
@@ -111,6 +111,7 @@
                 ></paginate-builder>
             @endif
         </template>
+
 
         @loadingCard(['class' => 'card_table'])
             @isset($loadingCard) {!! $loadingCard !!} @endisset

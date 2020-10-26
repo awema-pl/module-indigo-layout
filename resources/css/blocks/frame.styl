@@ -302,11 +302,11 @@
         background-color var(--tc_ui_btn_smcolor_active)
         color var(--tc_ui_btn_smcolor_text)
   & &__userava
-    display block
+    display inline-block
     position: relative
-    size 50px
+    size 30px
     overflow: hidden
-    margin-left 10px
+    margin 10px
     &:after
         content ''
         background-image linear-gradient(to top, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.1) 50%, rgba(255,255,255,0) 100%)
@@ -322,9 +322,6 @@
         font-size 20px
         absolute left 0 top 0
         display block
-    &:hover, &:active
-      &:after
-        transform: translateY(-50%)
   & &__search
     fl(,,c)
     &-link

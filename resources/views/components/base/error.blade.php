@@ -5,7 +5,7 @@
             <div class="card__middle-cell">
                 <i class="icon icon-data-error card__icon cl-red"></i>
                 <span class="card__caption cl-red">{{ __('indigo-layout::common.no-internet') }}</span>
-                {{ $slot }}
+                {{ $slot ?? '' }}
             </div>
         </div>
         @isset($footer_block) {!! $footer_block !!} @endisset

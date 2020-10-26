@@ -56,6 +56,7 @@ class IndigoLayoutServiceProvider extends AwemaProvider
 
     protected function registerDirectives()
     {
+      
         $directives = [
             // Chart
             'chart' => 'chart.default',

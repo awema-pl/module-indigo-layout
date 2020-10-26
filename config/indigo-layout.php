@@ -5,16 +5,27 @@ return [
     //This key pass to vuejs config
     'frontend' => [
         'dev' => env('APP_DEBUG', false),
-        'key' =>  env('PKGKIT_CDN_KEY', 'undefined'),
+//        'key' =>  env('PKGKIT_CDN_KEY', 'undefined'),
         'theme' => [
             'metaColor' => [
                 'dark' => '#2a2a2a',
                 'light' => '#ffffff',
             ]
-        ]
+        ],
+        'stickyParams'=> [
+            // all pages stores the `limit` param
+            //   '*'=>'limit',
+            // `/contacts` page stores `provider` and `tab` params, additionally to `limit`
+            // '/contacts'=> ['provider', 'tab'],
+            // all pages like '/account/', '/account/orders', etc. will store all given params
+            // '/account/*'=> '*'
+        ],
+
     ],
 
     'name' => env('APP_NAME', 'Awema.PL'),
+
+    'page-map-offset' => -20,
 
     'url' => env('APP_URL', 'https://example.com'),
 
@@ -25,7 +36,14 @@ return [
 
     'fonts' => ['https://fonts.googleapis.com/css?family=Roboto:300,400,400i,500,700'],
 
-    'custom_styles' => '',
+    'custom_styles' => '
+        :root:not([data-dark=true]) {
+            --tc_aside_gradient: linear-gradient(0deg, #222d30 0%,#222d30);
+            --tc_aside_gradient_header: linear-gradient(90deg,#222d30 0%,#222d30);
+            --tc_header_bg: #5c9cd0;
+        }
+      
+    ',
 
     'auth_bg_left' => env('APP_URL') . '/assets/awema-pl/indigo-layout/img/background/bg-'.rand(1, 3).'.jpg',
 
