@@ -10,6 +10,7 @@ return [
     'FORMS_SELECT_PLACEHOLDER' =>'Wybierz wartość',
     'FORMS_SELECT_AJAX_PLACEHOLDER' =>'Zacznij pisać...',
     'FORMS_SELECT_EMPTY' =>'Nic nie znaleziono',
+    'FORMS_SELECT_NO_RESULT' =>'Ups! Nie znaleziono żadnych elementów. Rozważ zmianę zapytania wyszukiwania.',
     'FORMS_SELECT_ADD_TAG' =>'Dodaj nową wartość',
     'FORMS_UPLOAD_DROP' =>'Przeciągnij i upuść plik lub',
     'FORMS_UPLOAD_ADD' =>'Dodaj plik',

@@ -10,8 +10,9 @@
 
     <!-- styles & fonts -->
     @fonts
+
     @styles(['items' => $src['css']])
-    @theme
+   @theme
     @externalLink
 
     <!-- config -->

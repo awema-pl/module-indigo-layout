@@ -76,6 +76,8 @@ class IndigoLayoutServiceProvider extends AwemaProvider
             'placeholder' => 'base.placeholder',
             // Navigation
             'navSidebar' => 'navigation.sidebar',
+            'navAdminSidebar' => 'navigation.adminSidebar',
+            'navAdminSidebar' => 'navigation.guestSidebar',
             'navTop' => 'navigation.top',
             'navUser' => 'navigation.user',
         ];

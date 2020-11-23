@@ -11,10 +11,10 @@
 
 @include('indigo-layout::chunks.head')
 
-<body>
+<body @if(config('indigo-layout.spa')) data-awema-spa-layout="main" @endif>
 
 <content-wrapper class="mainwrapper">
-    <div class="frame">
+    <div class="frame" >
         @notify(['class' => 'position-top-center', 'name' => 'top', 'stack' => 'top', 'config' => "{theme: 'inline, rounded'}"])
         <transition enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
             <div class="frame__overlay" v-show="$awemaLayoutCrm.togglenav || $awemaLayoutCrm.showUserMenu" @click="$awemaLayoutCrm.overlayClick"></div>
@@ -31,7 +31,19 @@
                     <div class="frame__aside-mhead g-res--tablet-lg"><a class="frame__aside-close" href="" @click.prevent="$awemaLayoutCrm.openNav()"><i class="icon icon-cross"></i></a>
                         <h4 class="frame__aside-mtitle"><span>{!! config('indigo-layout.name') !!}</span></h4>
                     </div>
-                    @navSidebar(['navigation' => $sidebar])
+                    @if(Auth::check())
+                        @navSidebar(['navigation' => $sidebar])
+                        @if(isset($adminSidebar) && $adminSidebar)
+                            <div class="mt-25 mb-25">
+                                <h4 class="frame__aside-mtitle text-center"><span>
+                                    {{ _p('indigo-layout::pages.main.administration', 'Administration')}}</span>
+                                </h4>
+                            </div>
+                            @navSidebar(['navigation' => $adminSidebar])
+                        @endif
+                    @else
+                        @navSidebar(['navigation' => $guestSidebar])
+                    @endif
                 </nav>
             </div>
         @endisset
@@ -55,8 +67,8 @@
                         {{--USER AVATAR--}}
 
                            <div class="grid grid-align-center">
-                               <div class="cell-auto"></div>
-                               <div class="cell-inline pr-0 mb-0" @click="$awemaLayoutCrm.showUserMenu = ! $awemaLayoutCrm.showUserMenu">
+                               <div class="cell-auto mb-0"></div>
+                               <div class="cell-inline pr-0 mb-0 is-link" @click="$awemaLayoutCrm.showUserMenu = ! $awemaLayoutCrm.showUserMenu">
                                    <button class="frame__userava tf-img">
                                        @if(isset($user_avatar))
                                            <img src="{{ $user_avatar }}" />
@@ -66,15 +78,15 @@
                                        @endif
                                    </button>
                                </div>
-                               <div class="cell-inline pl-0 pr-25" @click="$awemaLayoutCrm.showUserMenu = ! $awemaLayoutCrm.showUserMenu">
-                                  <span class="cl-white tf-size-small tf-pointer tf-text-shadow" >{{Auth::user()->name}}</span>
+                               <div class="cell-inline pl-0 pr-25 mb-0 is-link" @click="$awemaLayoutCrm.showUserMenu = ! $awemaLayoutCrm.showUserMenu">
+                                  <span class="cl-white tf-size-small tf-text-shadow" >{{Auth::user()->name}}</span>
                                </div>
                            </div>
 
                     @endif
 
                     @if(!Auth::check())
-                        <div class="frame__header-rlinks">
+                        <div class="frame__header-rlinks not-logged">
                             <div class="frame__rccell">
                                 <theme-switcher></theme-switcher>
                             </div>

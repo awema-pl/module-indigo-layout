@@ -29,6 +29,7 @@
     ],
     "require": {
         "php": "^7.1.3",
+        "awema-pl/module-awema-spa": "dev-master",
         "awema-pl/module-theme-switcher": "dev-master",
         "awema-pl/module-system-notify": "dev-master",
         "awema-pl/module-base-js": "dev-master",
@@ -64,6 +65,13 @@
         "sort-packages": true
     },
     "repositories": [
+        {
+            "type": "path",
+            "url": "../Awema-spa",
+            "options": {
+                "symlink": true
+            }
+        },
         {
             "type": "path",
             "url": "../Theme-switcher",

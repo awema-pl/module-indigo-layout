@@ -93,15 +93,14 @@ gulp.task('build:styles', function(){
     .pipe( isDev ? browserSync.stream() : noop() )
 })
 
+
 /*
  * IMAGES
  */
-
 gulp.task('build:img', function() {
   return gulp.src('./resources/img/**/*')
     .pipe( gulp.dest('./dist/img') )
 })
-
 
 
 /*

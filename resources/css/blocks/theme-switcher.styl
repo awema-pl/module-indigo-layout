@@ -18,3 +18,13 @@
     &.is-active
         & ^[0]__switcher
             switcher-active()
+
+.not-logged
+    .theme-switcher
+        &__label
+          color var(--tc_aside_link) !important
+          opacity 0.7
+        &:hover
+          .theme-switcher__label
+            opacity 1
+

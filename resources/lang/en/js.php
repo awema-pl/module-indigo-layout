@@ -10,6 +10,7 @@ return [
     'FORMS_SELECT_PLACEHOLDER' =>'Pick a value',
     'FORMS_SELECT_AJAX_PLACEHOLDER' =>'Start typing...',
     'FORMS_SELECT_EMPTY' =>'Nothing found',
+    'FORMS_SELECT_NO_RESULT' =>'Oops! No elements found. Consider changing the search query.',
     'FORMS_SELECT_ADD_TAG' =>'Add new value',
     'FORMS_UPLOAD_DROP' =>'Drag and drop file or',
     'FORMS_UPLOAD_ADD' =>'Add file',

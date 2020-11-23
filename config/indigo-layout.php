@@ -22,6 +22,7 @@ return [
         ],
 
     ],
+    'spa'=> true,
 
     'name' => env('APP_NAME', 'Awema.PL'),
 
