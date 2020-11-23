@@ -3,8 +3,8 @@
 
 @php
     $awema_custom_config = [
-        'modalWindow' => [
-            'lang' => app(\Illuminate\Contracts\Translation\Translator::class)->get('modal-window::js')
+        'contentWindow' => [
+            'lang' => app(\Illuminate\Contracts\Translation\Translator::class)->get('content-window::js')
             ],
     ];
 @endphp

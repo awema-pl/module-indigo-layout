@@ -16,7 +16,7 @@ block pageContent
     br
     br
 
-    modal-window(name='modalform', title="Modal form", class="modal_formbuilder" data-awema='checkOpenModal')
+    content-window(name='modalform', title="Modal form", class="modal_formbuilder" data-awema='checkOpenModal')
         form-builder(url="valera", method='PATCH', :default="{active:1, profile_manager:{first_name:'Valera'}}")
             template(slot-scope='fields')
                 fb-checkbox(name='theme_dark', label="Dark theme")
@@ -39,7 +39,7 @@ block pageContent
                 fb-input(name='profile_manager.mail_from', label="Mail from", disabled="!fields.active || !fields['profile_manager.smtp']")
 
 
-    modal-window(name="default" title="Default modal")
+    content-window(name="default" title="Default modal")
         p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab expedita, asperiores ipsum itaque amet iure deserunt minima dolorum, aut et assumenda quaerat odit quibusdam molestias saepe cumque veritatis rem doloremque.
         p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab expedita, asperiores ipsum itaque amet iure deserunt minima dolorum, aut et assumenda quaerat odit quibusdam molestias saepe cumque veritatis rem doloremque.
         p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab expedita, asperiores ipsum itaque amet iure deserunt minima dolorum, aut et assumenda quaerat odit quibusdam molestias saepe cumque veritatis rem doloremque.
@@ -103,7 +103,7 @@ block pageContent
         p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab expedita, asperiores ipsum itaque amet iure deserunt minima dolorum, aut et assumenda quaerat odit quibusdam molestias saepe cumque veritatis rem doloremque.
         p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab expedita, asperiores ipsum itaque amet iure deserunt minima dolorum, aut et assumenda quaerat odit quibusdam molestias saepe cumque veritatis rem doloremque.
 
-    modal-window(name="fullscreen" title="Fullscreen modal" class="valeragobpodval" fullscreen)
+    content-window(name="fullscreen" title="Fullscreen modal" class="valeragobpodval" fullscreen)
         div(style="max-width: 1000px;margin-left: auto;margin-right: auto;")
             p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab expedita, asperiores ipsum itaque amet iure deserunt minima dolorum, aut et assumenda quaerat odit quibusdam molestias saepe cumque veritatis rem doloremque.
             p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab expedita, asperiores ipsum itaque amet iure deserunt minima dolorum, aut et assumenda quaerat odit quibusdam molestias saepe cumque veritatis rem doloremque.
