@@ -84,3 +84,4 @@ php artisan vendor:publish --provider="AwemaPL\IndigoLayout\IndigoLayoutServiceP
 ## License
 
 [MIT](http://opensource.org/licenses/MIT)
+ 
