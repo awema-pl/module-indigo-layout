@@ -6,6 +6,7 @@
         'modalWindow' => [
             'lang' => app(\Illuminate\Contracts\Translation\Translator::class)->get('modal-window::js')
             ],
+            'notifyMessage' => Session::get('notifyMessage', null)
     ];
 @endphp
 
@@ -188,6 +189,7 @@
             @yield('modals')
         </div>
     @endif
+
 </content-wrapper>
 </body>
 </html>

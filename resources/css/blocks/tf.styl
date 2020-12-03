@@ -27,6 +27,12 @@ a
     &:hover
         color var(--tc_link_dark)
 
+.fake-link
+    color var(--tc_link)
+    cursor pointer
+    &:hover
+        text-decoration underline
+
 .cl
     &-red
         color cl_warn
@@ -297,6 +303,11 @@ pre
             color var(--tc_text_caption) !important
             .hljs-tag
                 color var(--tc_text_caption) !important
+
+hr
+    &.insgrey
+        border 0
+        border-top 1px solid cl_insgrey
 
 .vue-example
     border 1px solid var(--tc_border)
