@@ -24,7 +24,7 @@
             <div class="frame__aside" id="aside">
                 <div class="frame__aside-line">
                     <span class="frame__aside-open g-res--tablet-lg" :class="{ active: $awemaLayoutCrm.togglenav }" @click="$awemaLayoutCrm.openNav"><span></span></span>
-                    <h2 class="frame__aside-title"><a href="{{url(config('indigo-layout.start_link'))}}">{!! config('indigo-layout.name') !!}</a></h2>
+                    <h2 class="frame__aside-title"><a href="{{url(config('indigo-layout.home_link'))}}">{!! config('indigo-layout.name') !!}</a></h2>
                     @if(config('indigo-layout.simple_navs.btn') && !Auth::check())<a class="btn frame__aside-callbtn" href="{{ config('indigo-layout.simple_navs.btn.link') }}">{{ config('indigo-layout.simple_navs.btn.text') }}</a>@endif
                     {{--<button class="frame__aside-ava" @click="$awemaLayoutCrm.showUserMenu = ! $awemaLayoutCrm.showUserMenu"><i class="icon icon-user novatar novatar_box"></i></button>--}}
                 </div>

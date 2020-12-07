@@ -79,6 +79,6 @@ return [
 
     'show_footer_copyright' => true,
 
-    /** Link title application in header */
-    'start_link'=>'/home'
+    // Link to home page
+    'home_link'=>'/home'
 ];
