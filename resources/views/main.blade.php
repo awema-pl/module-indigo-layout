@@ -12,7 +12,7 @@
 
 @include('indigo-layout::chunks.head')
 
-<body @if(config('indigo-layout.spa')) data-awema-spa-layout="main" @endif>
+<body @if(config('indigo-layout.spa')) data-awema-spa-layout="main" @endif class="@yield('body_class', '')">
 
 <content-wrapper class="mainwrapper">
     <div class="frame" >
