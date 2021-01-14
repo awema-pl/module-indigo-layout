@@ -288,6 +288,10 @@
       size 48px
       z-index 2
       transform translateY(50%)
+    &-btn-2
+        absolute right 40px bottom 0
+        z-index 2
+        transform translateY(50%)
     &-add
       size 48px
       cursor pointer
@@ -301,6 +305,19 @@
       &:hover
         background-color var(--tc_ui_btn_smcolor_active)
         color var(--tc_ui_btn_smcolor_text)
+    &-options
+        cursor pointer
+        border-radius 5%
+        tr(0.3)
+        font-size 13px
+        fl(,c,c)
+        padding 12px 30px
+        box-shadow 0 0 7px rgba(85, 61, 0, 0.15)
+        background-color var(--tc_ui_btn_smcolor)
+        color var(--tc_ui_btn_smcolor_text)
+        &:hover
+            background-color var(--tc_ui_btn_smcolor_active)
+            color var(--tc_ui_btn_smcolor_text)
   & &__userava
     display inline-block
     position: relative

@@ -110,7 +110,11 @@
                             </h1>
 
                         </div>
-
+                    @hasSection('create_button_2')
+                        <div class="frame__header-btn-2">
+                            @yield('create_button_2', '')
+                        </div>
+                    @endif
                     @hasSection('create_button')
                         <div class="frame__header-btn">
                             @yield('create_button', '')
