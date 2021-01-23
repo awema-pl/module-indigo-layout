@@ -435,11 +435,12 @@ body.has-modal-fullscreen
             align-items flex-end
             flex-grow 1
 
-
+    &.is-container,
     &.is-fullscreen,
     &[class*="is-aside"]
         padding 0
         overflow hidden
+
         
         & ^[0]__dialog
             display flex
@@ -457,7 +458,13 @@ body.has-modal-fullscreen
         & ^[0]__body
             overflow auto
 
+    &.is-container,
+    &[class*="is-aside"]
+        max-width var(--ui-container-width,1200px)
+        margin 40px auto
+        border-radius 5px
 
+    &.is-container,
     &.is-fullscreen
         
         & ^[0]__title
@@ -602,6 +609,16 @@ body.has-modal-fullscreen
     transform scale(.98)
     opacity 0
     transition 170ms transform, 200ms opacity
+
+body.has-modal-container
+
+    > .content-wrapper
+        background-color black
+
+    .frame
+        pointer-events none
+        opacity 0.5
+        transition 170ms transform, 200ms opacity
 
 // fullscreen      
 .modal-transition-fullscreen
