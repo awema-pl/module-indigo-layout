@@ -20,7 +20,7 @@
                     <!--                        :is="expanded && !item.link ? 'span' : 'a'"-->
                     <component
                         :is="!item.link ? 'span' : 'a'"
-                        :href="expanded && item.link || ''"
+                        :href="item.link ? item.link : null"
                         :class="['frame__aside-link frame__aside-link_sub', item.class ? item.class : '', {'is-link': !item.link},
                                 {'is-active': active === index || itemActive(index), 'no-hover': expanded && !item.link}]"
                         @click="item.link ? null : toggleActive($event, index)"
