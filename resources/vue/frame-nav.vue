@@ -17,11 +17,12 @@
 
                 <!-- link with children -->
                 <div v-else>
+                    <!--                        :is="expanded && !item.link ? 'span' : 'a'"-->
                     <component
-                        :is="expanded && !item.link ? 'span' : 'a'"
+                        :is="!item.link ? 'span' : 'a'"
                         :href="expanded && item.link || ''"
-                        :class="['frame__aside-link frame__aside-link_sub',
-                                {'is-active': active === index || itemActive(index), 'no-hover': expanded && !item.link }]"
+                        :class="['frame__aside-link frame__aside-link_sub', item.class ? item.class : '', {'is-link': !item.link},
+                                {'is-active': active === index || itemActive(index), 'no-hover': expanded && !item.link}]"
                         @click="item.link ? null : toggleActive($event, index)"
                     >
                         <i v-if="item.icon" :class="'icon icon-'+item.icon"></i>
@@ -36,11 +37,12 @@
                             class="frame__aside-hidden"
                             :class="{'has-background': !expanded || active === index || itemActive(index) }"
                         >
+
                             <li class="frame__aside-inlist"
                                 v-for="(child, i) in item.children"
                                 :key="i">
                                 <a  :href="child.link || ''"
-                                    :class="['frame__aside-inlink', {'is-active': child.active}]"
+                                    :class="['frame__aside-inlink', child.class ? child.class : '', {'is-active': child.active}]"
                                 >
                                     <span :class="{'text-strong': child.active}">{{ child.name }}</span>
                                 </a>
