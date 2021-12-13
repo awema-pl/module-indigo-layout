@@ -193,8 +193,7 @@
             @yield('modals')
         </div>
     @endif
-    @stack('scripts')
-
 </content-wrapper>
+@stack('scripts')
 </body>
 </html>

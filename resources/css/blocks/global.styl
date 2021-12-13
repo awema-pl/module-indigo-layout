@@ -255,7 +255,7 @@ textarea
       border-radius var(--tc_border_radius)
       content ''
     &:after
-      padding 0 32px 0 52px
+      padding 0 52px 0 32px
       box-shadow 3px 4px 20px rgba(0, 0, 0, 0.2)
       border-radius 15px
       height 30px
@@ -271,7 +271,7 @@ textarea
       text-overflow ellipsis
       absolute left 50% top 10%
       transform translateX(-50%)
-      bg('loading.svg', left 30px center)
+      bg('loading.svg', right 30px center)
       content attr(data-loading)
   &-inline
     cursor default
@@ -318,7 +318,7 @@ textarea
     left 0
     right 0
     bottom 0
-    
+
     &.card
       box-shadow none
 

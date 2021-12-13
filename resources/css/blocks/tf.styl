@@ -42,6 +42,8 @@ a
         color var(--tc_text_caption)
     &-white
         color cl_white !important
+    &-link
+        color var(--tc_link) !important
 
 .mainwrapper
     pre[data-language]
@@ -131,6 +133,9 @@ p
     line-height 1.5
     + p
         margin-top -10px
+
+.lh-15
+    line-height 15px
 
 a
     &:hover
@@ -353,6 +358,12 @@ hr
 
 .block
     display block
+
+.inline-block
+    display inline-block
+
+.no-underline
+    text-decoration none !important
 
 .tf
     &-height-100
