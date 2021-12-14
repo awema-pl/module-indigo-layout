@@ -28,7 +28,6 @@
         "awema.pl"
     ],
     "require": {
-        "php": "^7.1.3",
         "awema-pl/module-awema-spa": "dev-master",
         "awema-pl/module-theme-switcher": "dev-master",
         "awema-pl/module-system-notify": "dev-master",
